@@ -1,0 +1,753 @@
+id,bmi,gender,is_training,name,image_path,image_exists,bmi_category
+3369,29.6984953704,Male,0,img_3369.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3369.bmp,True,Overweight
+3370,30.8459183673,Female,0,img_3370.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3370.bmp,True,Moderately obese
+3371,24.3897959184,Female,0,img_3371.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3371.bmp,True,Normal
+3372,36.2586788336,Male,0,img_3372.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3372.bmp,True,Severely obese
+3373,27.8912914104,Male,0,img_3373.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3373.bmp,True,Overweight
+3374,36.7434666667,Male,0,img_3374.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3374.bmp,True,Severely obese
+3375,23.3708444444,Male,0,img_3375.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3375.bmp,True,Normal
+3378,60.0968283974,Male,0,img_3378.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3378.bmp,True,Very severely obese
+3379,34.2566687671,Male,0,img_3379.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3379.bmp,True,Moderately obese
+3380,28.884837963,Male,0,img_3380.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3380.bmp,True,Overweight
+3381,23.4604552469,Male,0,img_3381.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3381.bmp,True,Normal
+3382,31.6317722681,Male,0,img_3382.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3382.bmp,True,Moderately obese
+3383,26.1446280992,Male,0,img_3383.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3383.bmp,True,Overweight
+3384,29.7984429066,Male,0,img_3384.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3384.bmp,True,Overweight
+3385,24.0211937716,Male,0,img_3385.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3385.bmp,True,Normal
+3386,41.19140625,Female,0,img_3386.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3386.bmp,True,Very severely obese
+3388,38.3388157895,Male,0,img_3388.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3388.bmp,True,Severely obese
+3389,33.4703947368,Male,0,img_3389.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3389.bmp,True,Moderately obese
+3390,41.19140625,Female,0,img_3390.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3390.bmp,True,Very severely obese
+3391,29.1772460938,Female,0,img_3391.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3391.bmp,True,Overweight
+3392,40.1644736842,Male,0,img_3392.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3392.bmp,True,Very severely obese
+3393,30.4276315789,Male,0,img_3393.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3393.bmp,True,Moderately obese
+3395,33.4695496925,Male,0,img_3395.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3395.bmp,True,Moderately obese
+3396,35.2584876543,Male,0,img_3396.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3396.bmp,True,Severely obese
+3397,29.1560570988,Male,0,img_3397.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3397.bmp,True,Overweight
+3398,30.4065743945,Female,0,img_3398.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3398.bmp,True,Moderately obese
+3399,26.3016868512,Female,0,img_3399.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3399.bmp,True,Overweight
+3400,30.0681666295,Female,0,img_3400.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3400.bmp,True,Moderately obese
+3401,25.8398306973,Female,0,img_3401.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3401.bmp,True,Overweight
+3402,44.7511574074,Male,0,img_3402.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3402.bmp,True,Very severely obese
+3403,26.4438657407,Male,0,img_3403.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3403.bmp,True,Overweight
+3406,45.4578287197,Male,0,img_3406.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3406.bmp,True,Very severely obese
+3407,27.669982699,Male,0,img_3407.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3407.bmp,True,Overweight
+3410,28.8373469388,Male,0,img_3410.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3410.bmp,True,Overweight
+3411,25.6810204082,Male,0,img_3411.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3411.bmp,True,Overweight
+3412,33.2243441358,Male,0,img_3412.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3412.bmp,True,Moderately obese
+3413,25.0877700617,Male,0,img_3413.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3413.bmp,True,Overweight
+3414,59.1824324324,Male,0,img_3414.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3414.bmp,True,Very severely obese
+3415,30.9391891892,Male,0,img_3415.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3415.bmp,True,Moderately obese
+3416,27.4540186445,Female,0,img_3416.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3416.bmp,True,Overweight
+3417,22.4945830184,Female,0,img_3417.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3417.bmp,True,Normal
+3418,48.5475607039,Male,0,img_3418.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3418.bmp,True,Very severely obese
+3419,27.8756961461,Male,0,img_3419.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3419.bmp,True,Overweight
+3420,41.0083333333,Male,0,img_3420.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3420.bmp,True,Very severely obese
+3421,27.7294444444,Male,0,img_3421.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3421.bmp,True,Overweight
+3422,33.6700824237,Male,0,img_3422.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3422.bmp,True,Moderately obese
+3423,25.8398306973,Male,0,img_3423.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3423.bmp,True,Overweight
+3426,30.4651045603,Female,0,img_3426.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3426.bmp,True,Moderately obese
+3427,25.3285462333,Female,0,img_3427.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3427.bmp,True,Overweight
+3428,45.3669333333,Male,0,img_3428.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3428.bmp,True,Very severely obese
+3429,29.8696888889,Male,0,img_3429.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3429.bmp,True,Overweight
+3432,34.9420118343,Female,0,img_3432.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3432.bmp,True,Moderately obese
+3433,19.9668639053,Female,0,img_3433.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3433.bmp,True,Normal
+3434,31.2368164062,Female,0,img_3434.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3434.bmp,True,Moderately obese
+3435,22.6552734375,Female,0,img_3435.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3435.bmp,True,Normal
+3436,39.9928888889,Male,0,img_3436.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3436.bmp,True,Severely obese
+3437,31.2444444444,Male,0,img_3437.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3437.bmp,True,Moderately obese
+3438,29.6819290674,Male,0,img_3438.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3438.bmp,True,Overweight
+3439,24.4051416776,Male,0,img_3439.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3439.bmp,True,Normal
+3440,41.9605142332,Female,0,img_3440.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3440.bmp,True,Very severely obese
+3441,29.8565197429,Female,0,img_3441.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3441.bmp,True,Overweight
+3442,41.606122449,Male,0,img_3442.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3442.bmp,True,Very severely obese
+3443,27.2591836735,Male,0,img_3443.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3443.bmp,True,Overweight
+3444,28.693877551,Female,0,img_3444.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3444.bmp,True,Overweight
+3445,22.9551020408,Female,0,img_3445.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3445.bmp,True,Normal
+3446,26.3096458008,Female,0,img_3446.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3446.bmp,True,Overweight
+3447,20.6718645578,Female,0,img_3447.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3447.bmp,True,Normal
+3448,45.6098615917,Female,0,img_3448.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3448.bmp,True,Very severely obese
+3449,25.0854238754,Female,0,img_3449.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3449.bmp,True,Overweight
+3450,32.2750771605,Male,0,img_3450.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3450.bmp,True,Moderately obese
+3451,28.4780092593,Male,0,img_3451.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3451.bmp,True,Overweight
+3452,28.1010288413,Male,0,img_3452.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3452.bmp,True,Overweight
+3453,23.1210996795,Male,0,img_3453.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3453.bmp,True,Normal
+3454,25.5924188403,Male,0,img_3454.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3454.bmp,True,Overweight
+3455,24.2732219929,Male,0,img_3455.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3455.bmp,True,Normal
+3456,44.1930943892,Male,0,img_3456.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3456.bmp,True,Very severely obese
+3457,35.6183148808,Male,0,img_3457.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3457.bmp,True,Severely obese
+3458,28.693877551,Female,0,img_3458.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3458.bmp,True,Overweight
+3459,22.9551020408,Female,0,img_3459.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3459.bmp,True,Normal
+3460,30.0354003906,Female,0,img_3460.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3460.bmp,True,Moderately obese
+3461,20.595703125,Female,0,img_3461.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3461.bmp,True,Normal
+3462,32.4847721067,Male,0,img_3462.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3462.bmp,True,Moderately obese
+3463,23.6252888049,Male,0,img_3463.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3463.bmp,True,Normal
+3464,42.6100581723,Male,0,img_3464.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3464.bmp,True,Very severely obese
+3465,29.4180896979,Male,0,img_3465.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3465.bmp,True,Overweight
+3466,25.8218549128,Female,0,img_3466.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3466.bmp,True,Overweight
+3467,22.5941230487,Female,0,img_3467.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3467.bmp,True,Normal
+3468,28.3396321492,Female,0,img_3468.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3468.bmp,True,Overweight
+3469,20.3691106072,Female,0,img_3469.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3469.bmp,True,Normal
+3470,36.3119834711,Female,0,img_3470.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3470.bmp,True,Severely obese
+3471,24.6921487603,Female,0,img_3471.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3471.bmp,True,Normal
+3472,43.9304598622,Male,0,img_3472.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3472.bmp,True,Very severely obese
+3473,24.2180740266,Male,0,img_3473.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3473.bmp,True,Normal
+3474,42.9923555556,Male,0,img_3474.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3474.bmp,True,Very severely obese
+3475,36.4935111111,Male,0,img_3475.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3475.bmp,True,Severely obese
+3476,64.8923076923,Female,0,img_3476.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3476.bmp,True,Very severely obese
+3477,44.0934911243,Female,0,img_3477.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3477.bmp,True,Very severely obese
+3478,38.9669942051,Female,0,img_3478.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3478.bmp,True,Severely obese
+3479,29.9337364575,Female,0,img_3479.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3479.bmp,True,Overweight
+3480,27.3848684211,Male,0,img_3480.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3480.bmp,True,Overweight
+3481,22.2730263158,Male,0,img_3481.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3481.bmp,True,Normal
+3482,41.2426666667,Male,0,img_3482.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3482.bmp,True,Very severely obese
+3483,28.7448888889,Male,0,img_3483.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3483.bmp,True,Overweight
+3484,48.7795918367,Male,0,img_3484.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3484.bmp,True,Very severely obese
+3485,41.606122449,Male,0,img_3485.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3485.bmp,True,Very severely obese
+3486,41.3149678604,Female,0,img_3486.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3486.bmp,True,Very severely obese
+3487,35.5050505051,Female,0,img_3487.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3487.bmp,True,Severely obese
+3488,37.4908949011,Female,0,img_3488.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3488.bmp,True,Severely obese
+3489,33.4674817898,Female,0,img_3489.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3489.bmp,True,Moderately obese
+3490,50.5012244898,Male,0,img_3490.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3490.bmp,True,Very severely obese
+3491,38.7367346939,Male,0,img_3491.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3491.bmp,True,Severely obese
+3492,53.0339355469,Female,0,img_3492.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3492.bmp,True,Very severely obese
+3493,35.8708496094,Female,0,img_3493.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3493.bmp,True,Severely obese
+3494,38.686410418,Female,0,img_3494.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3494.bmp,True,Severely obese
+3495,23.0346565848,Female,0,img_3495.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3495.bmp,True,Normal
+3496,37.1189164371,Female,0,img_3496.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3496.bmp,True,Severely obese
+3497,29.0495867769,Female,0,img_3497.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3497.bmp,True,Overweight
+3500,54.2438271605,Male,0,img_3500.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3500.bmp,True,Very severely obese
+3501,40.6828703704,Male,0,img_3501.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3501.bmp,True,Very severely obese
+3502,41.3149678604,Female,0,img_3502.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3502.bmp,True,Very severely obese
+3506,44.6260662567,Male,0,img_3506.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3506.bmp,True,Very severely obese
+3507,32.074985122,Male,0,img_3507.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3507.bmp,True,Moderately obese
+3508,32.1177102929,Female,0,img_3508.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3508.bmp,True,Moderately obese
+3509,20.593120129,Female,0,img_3509.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3509.bmp,True,Normal
+3510,38.0872359963,Female,0,img_3510.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3510.bmp,True,Severely obese
+3511,32.277318641,Female,0,img_3511.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3511.bmp,True,Moderately obese
+3512,29.2851414569,Female,0,img_3512.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3512.bmp,True,Overweight
+3513,21.924704834,Female,0,img_3513.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3513.bmp,True,Normal
+3514,43.6486486486,Male,0,img_3514.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3514.bmp,True,Very severely obese
+3515,25.6756756757,Male,0,img_3515.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3515.bmp,True,Overweight
+3516,38.3682334596,Female,0,img_3516.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3516.bmp,True,Severely obese
+3517,26.6228558699,Female,0,img_3517.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3517.bmp,True,Overweight
+3518,27.9765306122,Male,0,img_3518.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3518.bmp,True,Overweight
+3519,24.3897959184,Male,0,img_3519.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3519.bmp,True,Normal
+3520,27.4609375,Female,0,img_3520.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3520.bmp,True,Overweight
+3521,20.9389648438,Female,0,img_3521.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3521.bmp,True,Normal
+3522,36.9587881488,Female,0,img_3522.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3522.bmp,True,Severely obese
+3523,26.1530407663,Female,0,img_3523.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3523.bmp,True,Overweight
+3524,37.4933333333,Male,0,img_3524.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3524.bmp,True,Severely obese
+3525,29.9946666667,Male,0,img_3525.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3525.bmp,True,Overweight
+3526,38.7327823691,Female,0,img_3526.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3526.bmp,True,Severely obese
+3527,30.6634527089,Female,0,img_3527.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3527.bmp,True,Moderately obese
+3528,53.2055664062,Female,0,img_3528.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3528.bmp,True,Very severely obese
+3529,29.1772460938,Female,0,img_3529.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3529.bmp,True,Overweight
+3532,25.5052405267,Female,0,img_3532.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3532.bmp,True,Overweight
+3533,21.1599032518,Female,0,img_3533.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3533.bmp,True,Normal
+3534,33.8304358781,Female,0,img_3534.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3534.bmp,True,Moderately obese
+3535,26.7455278408,Female,0,img_3535.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3535.bmp,True,Overweight
+3536,34.9420118343,Female,0,img_3536.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3536.bmp,True,Moderately obese
+3537,29.7839053254,Female,0,img_3537.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3537.bmp,True,Overweight
+3538,40.6059651334,Male,0,img_3538.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3538.bmp,True,Very severely obese
+3539,25.8401596303,Male,0,img_3539.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3539.bmp,True,Overweight
+3540,29.4440686785,Female,0,img_3540.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3540.bmp,True,Overweight
+3541,21.7630072841,Female,0,img_3541.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3541.bmp,True,Normal
+3542,38.6814435286,Female,0,img_3542.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3542.bmp,True,Severely obese
+3543,29.4417464914,Female,0,img_3543.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3543.bmp,True,Overweight
+3544,45.4292052469,Male,0,img_3544.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3544.bmp,True,Very severely obese
+3545,32.8175154321,Male,0,img_3545.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3545.bmp,True,Moderately obese
+3546,49.9911111111,Male,0,img_3546.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3546.bmp,True,Very severely obese
+3547,26.8702222222,Male,0,img_3547.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3547.bmp,True,Overweight
+3548,36.045505528,Male,0,img_3548.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3548.bmp,True,Severely obese
+3549,29.8501842653,Male,0,img_3549.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3549.bmp,True,Overweight
+3550,57.4897777778,Male,0,img_3550.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3550.bmp,True,Very severely obese
+3551,51.8657777778,Male,0,img_3551.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3551.bmp,True,Very severely obese
+3552,30.4651045603,Female,0,img_3552.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3552.bmp,True,Moderately obese
+3553,24.7971781305,Female,0,img_3553.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3553.bmp,True,Normal
+3554,39.7450902599,Male,0,img_3554.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3554.bmp,True,Severely obese
+3555,33.3300932355,Male,0,img_3555.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3555.bmp,True,Moderately obese
+3556,33.084251607,Female,0,img_3556.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3556.bmp,True,Moderately obese
+3557,27.1129476584,Female,0,img_3557.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3557.bmp,True,Overweight
+3558,45.4154600134,Male,0,img_3558.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3558.bmp,True,Very severely obese
+3559,38.3682334596,Male,0,img_3559.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3559.bmp,True,Severely obese
+3560,34.6996429322,Male,0,img_3560.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3560.bmp,True,Moderately obese
+3561,32.4847721067,Male,0,img_3561.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3561.bmp,True,Moderately obese
+3562,34.0202702703,Male,0,img_3562.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3562.bmp,True,Moderately obese
+3563,24.3918918919,Male,0,img_3563.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3563.bmp,True,Normal
+3564,29.2611862643,Female,0,img_3564.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3564.bmp,True,Overweight
+3565,23.7747138398,Female,0,img_3565.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3565.bmp,True,Normal
+3566,40.3466483012,Male,0,img_3566.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3566.bmp,True,Very severely obese
+3567,30.6634527089,Male,0,img_3567.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3567.bmp,True,Moderately obese
+3568,38.3910943079,Male,0,img_3568.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3568.bmp,True,Severely obese
+3569,28.0550304558,Male,0,img_3569.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3569.bmp,True,Overweight
+3572,33.5075999249,Male,0,img_3572.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3572.bmp,True,Moderately obese
+3573,28.0988928504,Male,0,img_3573.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3573.bmp,True,Overweight
+3574,31.6607243385,Male,0,img_3574.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3574.bmp,True,Moderately obese
+3575,25.0647401013,Male,0,img_3575.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3575.bmp,True,Overweight
+3576,32.2208333333,Female,0,img_3576.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3576.bmp,True,Moderately obese
+3577,24.9955555556,Female,0,img_3577.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3577.bmp,True,Normal
+3578,37.9258494031,Male,0,img_3578.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3578.bmp,True,Severely obese
+3579,33.084251607,Male,0,img_3579.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3579.bmp,True,Moderately obese
+3580,45.4797959184,Female,0,img_3580.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3580.bmp,True,Very severely obese
+3581,28.5504081633,Female,0,img_3581.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3581.bmp,True,Overweight
+3582,27.1157142857,Male,0,img_3582.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3582.bmp,True,Overweight
+3583,24.2463265306,Male,0,img_3583.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3583.bmp,True,Normal
+3584,29.8138487521,Male,0,img_3584.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3584.bmp,True,Overweight
+3585,25.0647401013,Male,0,img_3585.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3585.bmp,True,Overweight
+3586,38.7431111111,Male,0,img_3586.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3586.bmp,True,Severely obese
+3587,27.4951111111,Male,0,img_3587.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3587.bmp,True,Overweight
+3588,48.005787037,Male,0,img_3588.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3588.bmp,True,Very severely obese
+3589,43.9375,Male,0,img_3589.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3589.bmp,True,Very severely obese
+3592,37.9258494031,Female,0,img_3592.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3592.bmp,True,Severely obese
+3593,27.4357208448,Female,0,img_3593.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3593.bmp,True,Overweight
+3594,32.4847721067,Female,0,img_3594.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3594.bmp,True,Moderately obese
+3595,23.6252888049,Female,0,img_3595.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3595.bmp,True,Normal
+3596,31.0361842105,Male,0,img_3596.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3596.bmp,True,Moderately obese
+3597,22.5164473684,Male,0,img_3597.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3597.bmp,True,Normal
+3598,44.0060147026,Female,0,img_3598.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3598.bmp,True,Very severely obese
+3599,30.5379817331,Female,0,img_3599.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3599.bmp,True,Moderately obese
+3600,45.2588549788,Male,0,img_3600.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3600.bmp,True,Very severely obese
+3601,38.211628425,Male,0,img_3601.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3601.bmp,True,Severely obese
+3602,43.0663844954,Female,0,img_3602.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3602.bmp,True,Very severely obese
+3603,38.3682334596,Female,0,img_3603.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3603.bmp,True,Severely obese
+3604,37.7587890625,Female,0,img_3604.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3604.bmp,True,Severely obese
+3605,27.4609375,Female,0,img_3605.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3605.bmp,True,Overweight
+3606,40.2341311134,Female,0,img_3606.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3606.bmp,True,Very severely obese
+3607,27.4323621228,Female,0,img_3607.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3607.bmp,True,Overweight
+3608,32.074985122,Male,0,img_3608.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3608.bmp,True,Moderately obese
+3609,19.5239039873,Male,0,img_3609.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3609.bmp,True,Normal
+3610,37.4378698225,Female,0,img_3610.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3610.bmp,True,Severely obese
+3611,28.2863905325,Female,0,img_3611.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3611.bmp,True,Overweight
+3612,43.2315016862,Male,0,img_3612.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3612.bmp,True,Very severely obese
+3613,34.1668319778,Male,0,img_3613.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3613.bmp,True,Moderately obese
+3614,37.0621718126,Female,0,img_3614.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3614.bmp,True,Severely obese
+3615,33.961352657,Female,0,img_3615.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3615.bmp,True,Moderately obese
+3616,40.4391891892,Male,0,img_3616.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3616.bmp,True,Very severely obese
+3617,30.8108108108,Male,0,img_3617.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3617.bmp,True,Moderately obese
+3618,31.5632653061,Male,0,img_3618.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3618.bmp,True,Moderately obese
+3619,27.9765306122,Male,0,img_3619.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3619.bmp,True,Overweight
+3620,34.9379488653,Female,0,img_3620.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3620.bmp,True,Moderately obese
+3621,29.0812984774,Female,0,img_3621.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3621.bmp,True,Overweight
+3622,63.0936418685,Female,0,img_3622.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3622.bmp,True,Very severely obese
+3623,34.9675605536,Female,0,img_3623.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3623.bmp,True,Moderately obese
+3624,46.2162162162,Male,0,img_3624.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3624.bmp,True,Very severely obese
+3625,33.3783783784,Male,0,img_3625.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3625.bmp,True,Moderately obese
+3626,27.7872189349,Female,0,img_3626.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3626.bmp,True,Overweight
+3627,23.6274556213,Female,0,img_3627.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3627.bmp,True,Normal
+3628,46.1718896603,Male,0,img_3628.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3628.bmp,True,Very severely obese
+3629,31.1330455995,Male,0,img_3629.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3629.bmp,True,Moderately obese
+3632,36.9375117283,Male,0,img_3632.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3632.bmp,True,Severely obese
+3633,25.0647401013,Male,0,img_3633.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3633.bmp,True,Overweight
+3634,38.3505256893,Male,0,img_3634.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3634.bmp,True,Severely obese
+3635,30.2620511803,Male,0,img_3635.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3635.bmp,True,Moderately obese
+3636,26.4438657407,Male,0,img_3636.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3636.bmp,True,Overweight
+3637,23.7316743827,Male,0,img_3637.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3637.bmp,True,Normal
+3638,56.6305555556,Male,0,img_3638.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3638.bmp,True,Very severely obese
+3639,43.9375,Male,0,img_3639.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3639.bmp,True,Very severely obese
+3640,46.0659602076,Female,0,img_3640.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3640.bmp,True,Very severely obese
+3641,30.7106401384,Female,0,img_3641.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3641.bmp,True,Moderately obese
+3642,25.8398306973,Female,0,img_3642.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3642.bmp,True,Overweight
+3643,21.924704834,Female,0,img_3643.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3643.bmp,True,Normal
+3644,42.9525887721,Male,0,img_3644.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3644.bmp,True,Very severely obese
+3645,23.4286847848,Male,0,img_3645.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3645.bmp,True,Normal
+3646,36.0191579416,Male,0,img_3646.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3646.bmp,True,Severely obese
+3647,26.1530407663,Male,0,img_3647.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3647.bmp,True,Overweight
+3648,68.618441358,Male,0,img_3648.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3648.bmp,True,Very severely obese
+3649,29.2916666667,Male,0,img_3649.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3649.bmp,True,Overweight
+3650,35.3544755114,Male,0,img_3650.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3650.bmp,True,Severely obese
+3651,27.1754550572,Male,0,img_3651.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3651.bmp,True,Overweight
+3652,36.1757629762,Female,0,img_3652.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3652.bmp,True,Severely obese
+3653,28.9719313878,Female,0,img_3653.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3653.bmp,True,Overweight
+3654,29.0223306436,Male,0,img_3654.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3654.bmp,True,Overweight
+3655,23.7455432539,Male,0,img_3655.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3655.bmp,True,Normal
+3658,46.6407254362,Male,0,img_3658.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3658.bmp,True,Very severely obese
+3659,25.8218549128,Male,0,img_3659.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3659.bmp,True,Overweight
+3661,29.9831382662,Male,0,img_3661.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3661.bmp,True,Overweight
+3662,33.1219450743,Female,0,img_3662.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3662.bmp,True,Moderately obese
+3663,23.3801965231,Female,0,img_3663.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3663.bmp,True,Normal
+3664,45.7286700824,Male,0,img_3664.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3664.bmp,True,Very severely obese
+3665,31.1644018712,Male,0,img_3665.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3665.bmp,True,Moderately obese
+3666,49.7729492188,Female,0,img_3666.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3666.bmp,True,Very severely obese
+3667,40.6765136719,Female,0,img_3667.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3667.bmp,True,Very severely obese
+3668,41.9605142332,Female,0,img_3668.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3668.bmp,True,Very severely obese
+3669,37.1189164371,Female,0,img_3669.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3669.bmp,True,Severely obese
+3670,37.1027777778,Female,0,img_3670.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3670.bmp,True,Severely obese
+3671,26.3625,Female,0,img_3671.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3671.bmp,True,Overweight
+3672,41.3149678604,Male,0,img_3672.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3672.bmp,True,Very severely obese
+3673,24.2079889807,Male,0,img_3673.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3673.bmp,True,Normal
+3674,34.4326530612,Male,0,img_3674.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3674.bmp,True,Moderately obese
+3675,28.693877551,Male,0,img_3675.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3675.bmp,True,Overweight
+3676,31.0011259148,Male,0,img_3676.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3676.bmp,True,Moderately obese
+3677,26.3839369488,Male,0,img_3677.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3677.bmp,True,Overweight
+3678,52.7678738975,Male,0,img_3678.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3678.bmp,True,Very severely obese
+3679,44.7207731282,Male,0,img_3679.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3679.bmp,True,Very severely obese
+3682,37.6532434041,Male,0,img_3682.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3682.bmp,True,Severely obese
+3683,28.8674866098,Male,0,img_3683.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3683.bmp,True,Overweight
+3684,27.365916955,Male,0,img_3684.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3684.bmp,True,Overweight
+3685,23.5650951557,Male,0,img_3685.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3685.bmp,True,Normal
+3686,50.853587963,Male,0,img_3686.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3686.bmp,True,Very severely obese
+3687,38.6487268519,Male,0,img_3687.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3687.bmp,True,Severely obese
+3688,27.4540186445,Female,0,img_3688.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3688.bmp,True,Overweight
+3689,23.9115646259,Female,0,img_3689.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3689.bmp,True,Normal
+3690,36.1459936198,Male,0,img_3690.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3690.bmp,True,Severely obese
+3691,19.7879527116,Male,0,img_3691.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3691.bmp,True,Normal
+3692,45.4578287197,Male,0,img_3692.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3692.bmp,True,Very severely obese
+3693,25.9976211073,Male,0,img_3693.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3693.bmp,True,Overweight
+3696,46.5119628906,Female,0,img_3696.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3696.bmp,True,Very severely obese
+3697,27.2893066406,Female,0,img_3697.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3697.bmp,True,Overweight
+3698,39.9928888889,Male,0,img_3698.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3698.bmp,True,Severely obese
+3699,31.2444444444,Male,0,img_3699.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3699.bmp,True,Moderately obese
+3700,48.2770061728,Male,0,img_3700.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3700.bmp,True,Very severely obese
+3701,29.8341049383,Male,0,img_3701.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3701.bmp,True,Overweight
+3702,36.0191579416,Female,0,img_3702.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3702.bmp,True,Severely obese
+3703,28.0323011807,Female,0,img_3703.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3703.bmp,True,Overweight
+3704,48.7795918367,Male,0,img_3704.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3704.bmp,True,Very severely obese
+3705,32.9979591837,Male,0,img_3705.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3705.bmp,True,Moderately obese
+3706,37.7302631579,Male,0,img_3706.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3706.bmp,True,Severely obese
+3707,23.7335526316,Male,0,img_3707.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3707.bmp,True,Normal
+3708,34.7663176654,Female,0,img_3708.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3708.bmp,True,Moderately obese
+3709,23.4907551793,Female,0,img_3709.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3709.bmp,True,Normal
+3710,41.5547006943,Male,0,img_3710.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3710.bmp,True,Very severely obese
+3711,36.9375117283,Male,0,img_3711.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3711.bmp,True,Severely obese
+3712,40.4328994083,Female,0,img_3712.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3712.bmp,True,Very severely obese
+3713,35.441183432,Female,0,img_3713.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3713.bmp,True,Severely obese
+3714,28.4069387755,Male,0,img_3714.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3714.bmp,True,Overweight
+3715,23.5289795918,Male,0,img_3715.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3715.bmp,True,Normal
+3716,31.3210069058,Male,0,img_3716.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3716.bmp,True,Moderately obese
+3717,21.2982846959,Male,0,img_3717.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3717.bmp,True,Normal
+3718,43.9287839714,Male,0,img_3718.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3718.bmp,True,Very severely obese
+3719,25.1021622694,Male,0,img_3719.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3719.bmp,True,Overweight
+3720,31.8682484568,Male,0,img_3720.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3720.bmp,True,Moderately obese
+3721,23.8672839506,Male,0,img_3721.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3721.bmp,True,Normal
+3722,39.4540816327,Male,0,img_3722.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3722.bmp,True,Severely obese
+3723,35.0065306122,Male,0,img_3723.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3723.bmp,True,Severely obese
+3724,40.3466483012,Male,0,img_3724.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3724.bmp,True,Very severely obese
+3725,28.7268135904,Male,0,img_3725.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3725.bmp,True,Overweight
+3728,31.3187716263,Female,0,img_3728.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3728.bmp,True,Moderately obese
+3729,23.7171280277,Female,0,img_3729.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3729.bmp,True,Normal
+3730,34.5389266818,Female,0,img_3730.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3730.bmp,True,Moderately obese
+3732,35.4379332073,Male,0,img_3732.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3732.bmp,True,Severely obese
+3733,23.6252888049,Male,0,img_3733.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3733.bmp,True,Normal
+3734,45.9970703125,Male,0,img_3734.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3734.bmp,True,Very severely obese
+3735,44.2807617188,Male,0,img_3735.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3735.bmp,True,Very severely obese
+3736,43.0408163265,Male,0,img_3736.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3736.bmp,True,Very severely obese
+3737,30.1285714286,Male,0,img_3737.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3737.bmp,True,Moderately obese
+3738,44.7655227137,Male,0,img_3738.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3738.bmp,True,Very severely obese
+3739,33.6090061496,Male,0,img_3739.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3739.bmp,True,Moderately obese
+3740,25.7658179012,Male,0,img_3740.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3740.bmp,True,Overweight
+3741,21.5619212963,Male,0,img_3741.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3741.bmp,True,Normal
+3742,28.4780092593,Male,0,img_3742.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3742.bmp,True,Overweight
+3743,26.5794753086,Male,0,img_3743.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3743.bmp,True,Overweight
+3744,50.9743652344,Female,0,img_3744.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3744.bmp,True,Very severely obese
+3745,28.1474609375,Female,0,img_3745.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3745.bmp,True,Overweight
+3746,36.1542857143,Male,0,img_3746.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3746.bmp,True,Severely obese
+3747,31.4197959184,Male,0,img_3747.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3747.bmp,True,Moderately obese
+3748,32.2806122449,Male,0,img_3748.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3748.bmp,True,Moderately obese
+3749,27.2591836735,Male,0,img_3749.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3749.bmp,True,Overweight
+3750,35.1822773186,Female,0,img_3750.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3750.bmp,True,Severely obese
+3751,29.8565197429,Female,0,img_3751.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3751.bmp,True,Overweight
+3752,32.2806122449,Male,0,img_3752.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3752.bmp,True,Moderately obese
+3753,26.3983673469,Male,0,img_3753.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3753.bmp,True,Overweight
+3754,33.6351351351,Male,0,img_3754.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3754.bmp,True,Moderately obese
+3755,22.2094594595,Male,0,img_3755.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3755.bmp,True,Normal
+3756,29.7042253521,Male,0,img_3756.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3756.bmp,True,Overweight
+3757,26.9150962111,Male,0,img_3757.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3757.bmp,True,Overweight
+3758,35.5890861275,Male,0,img_3758.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3758.bmp,True,Severely obese
+3759,30.0427350427,Male,0,img_3759.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3759.bmp,True,Moderately obese
+3760,46.5122873346,Female,0,img_3760.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3760.bmp,True,Very severely obese
+3761,40.6059651334,Female,0,img_3761.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3761.bmp,True,Very severely obese
+3762,34.006987369,Female,0,img_3762.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3762.bmp,True,Moderately obese
+3763,28.1502284332,Female,0,img_3763.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3763.bmp,True,Overweight
+3766,53.0836734694,Male,0,img_3766.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3766.bmp,True,Very severely obese
+3767,38.7367346939,Male,0,img_3767.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3767.bmp,True,Severely obese
+3768,53.0836734694,Male,0,img_3768.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3768.bmp,True,Very severely obese
+3769,43.0408163265,Male,0,img_3769.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3769.bmp,True,Very severely obese
+3770,38.7689940828,Female,0,img_3770.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3770.bmp,True,Severely obese
+3771,28.7855621302,Female,0,img_3771.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3771.bmp,True,Overweight
+3772,34.4531075963,Male,0,img_3772.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3772.bmp,True,Moderately obese
+3773,26.6228558699,Male,0,img_3773.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3773.bmp,True,Overweight
+3774,35.5613965483,Male,0,img_3774.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3774.bmp,True,Severely obese
+3775,32.074985122,Male,0,img_3775.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3775.bmp,True,Moderately obese
+3776,28.2426538108,Female,0,img_3776.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3776.bmp,True,Overweight
+3777,21.7871900826,Female,0,img_3777.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3777.bmp,True,Normal
+3778,37.021412037,Male,0,img_3778.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3778.bmp,True,Severely obese
+3779,23.0536265432,Male,0,img_3779.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3779.bmp,True,Normal
+3780,31.1902006173,Male,0,img_3780.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3780.bmp,True,Moderately obese
+3781,28.4780092593,Male,0,img_3781.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3781.bmp,True,Overweight
+3782,45.6098615917,Male,0,img_3782.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3782.bmp,True,Very severely obese
+3783,39.5285467128,Male,0,img_3783.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3783.bmp,True,Severely obese
+3784,34.951625907,Female,0,img_3784.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3784.bmp,True,Moderately obese
+3785,31.7398548777,Female,0,img_3785.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3785.bmp,True,Moderately obese
+3786,35.5613965483,Male,0,img_3786.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3786.bmp,True,Severely obese
+3787,25.7994445547,Male,0,img_3787.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3787.bmp,True,Overweight
+3788,33.891184573,Male,0,img_3788.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3788.bmp,True,Moderately obese
+3789,29.0495867769,Male,0,img_3789.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3789.bmp,True,Overweight
+3791,20.9709755442,Female,0,img_3791.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3791.bmp,True,Normal
+3796,30.6634527089,Female,0,img_3796.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3796.bmp,True,Moderately obese
+3797,23.4010560147,Female,0,img_3797.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3797.bmp,True,Normal
+3798,39.4540816327,Female,0,img_3798.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3798.bmp,True,Severely obese
+3799,24.6767346939,Female,0,img_3799.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3799.bmp,True,Normal
+3800,42.8783783784,Male,0,img_3800.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3800.bmp,True,Very severely obese
+3801,36.972972973,Male,0,img_3801.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3801.bmp,True,Severely obese
+3804,42.8208359588,Female,0,img_3804.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3804.bmp,True,Very severely obese
+3805,25.9878176854,Female,0,img_3805.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3805.bmp,True,Overweight
+3806,40.3466483012,Male,0,img_3806.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3806.bmp,True,Very severely obese
+3807,27.7584940312,Male,0,img_3807.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3807.bmp,True,Overweight
+3808,30.3415274911,Male,0,img_3808.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3808.bmp,True,Moderately obese
+3809,22.5582660912,Male,0,img_3809.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3809.bmp,True,Normal
+3810,41.1535812672,Female,0,img_3810.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3810.bmp,True,Very severely obese
+3811,23.0782828283,Female,0,img_3811.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3811.bmp,True,Normal
+3814,40.8308080808,Female,0,img_3814.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3814.bmp,True,Very severely obese
+3815,26.6287878788,Female,0,img_3815.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3815.bmp,True,Overweight
+3817,23.7075976989,Male,0,img_3817.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3817.bmp,True,Normal
+3818,45.4578287197,Female,0,img_3818.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3818.bmp,True,Very severely obese
+3819,37.7041522491,Female,0,img_3819.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3819.bmp,True,Severely obese
+3820,35.8673469388,Male,0,img_3820.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3820.bmp,True,Severely obese
+3821,21.5204081633,Male,0,img_3821.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3821.bmp,True,Normal
+3822,40.4423725451,Male,0,img_3822.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3822.bmp,True,Very severely obese
+3823,29.9831382662,Male,0,img_3823.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3823.bmp,True,Overweight
+3824,52.3663265306,Male,0,img_3824.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3824.bmp,True,Very severely obese
+3825,35.5804081633,Male,0,img_3825.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3825.bmp,True,Severely obese
+3827,32.4134542706,Female,0,img_3827.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3827.bmp,True,Moderately obese
+3828,28.5021162843,Female,0,img_3828.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3828.bmp,True,Overweight
+3829,26.3096458008,Female,0,img_3829.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3829.bmp,True,Overweight
+3830,27.7294444444,Female,0,img_3830.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3830.bmp,True,Overweight
+3831,21.6758333333,Female,0,img_3831.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3831.bmp,True,Normal
+3832,28.4069387755,Female,0,img_3832.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3832.bmp,True,Overweight
+3833,21.5204081633,Female,0,img_3833.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3833.bmp,True,Normal
+3834,32.1394675926,Female,0,img_3834.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3834.bmp,True,Moderately obese
+3835,27.1219135802,Female,0,img_3835.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3835.bmp,True,Overweight
+3836,50.2142857143,Male,0,img_3836.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3836.bmp,True,Very severely obese
+3837,25.8244897959,Male,0,img_3837.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3837.bmp,True,Overweight
+3838,34.9675605536,Female,0,img_3838.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3838.bmp,True,Moderately obese
+3839,23.5650951557,Female,0,img_3839.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3839.bmp,True,Normal
+3842,46.0693131695,Male,0,img_3842.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3842.bmp,True,Very severely obese
+3843,26.5784499055,Male,0,img_3843.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3843.bmp,True,Overweight
+3844,51.6796613945,Female,0,img_3844.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3844.bmp,True,Very severely obese
+3845,31.3210069058,Female,0,img_3845.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3845.bmp,True,Moderately obese
+3846,38.0082179931,Male,0,img_3846.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3846.bmp,True,Severely obese
+3847,31.0147058824,Male,0,img_3847.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3847.bmp,True,Moderately obese
+3848,37.7432888889,Male,0,img_3848.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3848.bmp,True,Severely obese
+3849,27.4951111111,Male,0,img_3849.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3849.bmp,True,Overweight
+3850,34.864114263,Male,0,img_3850.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3850.bmp,True,Moderately obese
+3852,39.1512586322,Female,0,img_3852.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3852.bmp,True,Severely obese
+3853,33.6700824237,Female,0,img_3853.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3853.bmp,True,Moderately obese
+3856,36.5764828304,Female,0,img_3856.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3856.bmp,True,Severely obese
+3857,21.9458896982,Female,0,img_3857.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3857.bmp,True,Normal
+3858,72.6043184183,Female,0,img_3858.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3858.bmp,True,Very severely obese
+3859,47.000780437,Female,0,img_3859.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3859.bmp,True,Very severely obese
+3860,49.3379620942,Male,0,img_3860.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3860.bmp,True,Very severely obese
+3861,32.452242447,Male,0,img_3861.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3861.bmp,True,Moderately obese
+3862,42.7623668639,Female,0,img_3862.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3862.bmp,True,Very severely obese
+3863,33.2781065089,Female,0,img_3863.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3863.bmp,True,Moderately obese
+3864,41.6238347191,Female,0,img_3864.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3864.bmp,True,Very severely obese
+3865,29.5794910557,Female,0,img_3865.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3865.bmp,True,Overweight
+3866,44.2974165091,Female,0,img_3866.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3866.bmp,True,Very severely obese
+3867,30.1222432262,Female,0,img_3867.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3867.bmp,True,Moderately obese
+3868,40.4328994083,Female,0,img_3868.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3868.bmp,True,Very severely obese
+3869,33.7772781065,Female,0,img_3869.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3869.bmp,True,Moderately obese
+3870,36.7281632653,Male,0,img_3870.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3870.bmp,True,Severely obese
+3871,29.5546938776,Male,0,img_3871.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3871.bmp,True,Overweight
+3872,46.1718896603,Male,0,img_3872.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3872.bmp,True,Very severely obese
+3873,40.2355038469,Male,0,img_3873.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3873.bmp,True,Very severely obese
+3874,31.4776119403,Female,0,img_3874.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3874.bmp,True,Moderately obese
+3875,26.3096458008,Female,0,img_3875.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3875.bmp,True,Overweight
+3876,47.4633487654,Male,0,img_3876.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3876.bmp,True,Very severely obese
+3877,29.1560570988,Male,0,img_3877.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3877.bmp,True,Overweight
+3882,56.5491898148,Male,0,img_3882.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3882.bmp,True,Very severely obese
+3883,43.1238425926,Male,0,img_3883.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3883.bmp,True,Very severely obese
+3884,45.6098615917,Male,0,img_3884.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3884.bmp,True,Very severely obese
+3885,41.8090397924,Male,0,img_3885.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3885.bmp,True,Very severely obese
+3886,36.6145833333,Male,0,img_3886.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3886.bmp,True,Severely obese
+3887,31.1902006173,Male,0,img_3887.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3887.bmp,True,Moderately obese
+3888,33.1906367784,Male,0,img_3888.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3888.bmp,True,Moderately obese
+3889,26.2178139258,Male,0,img_3889.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3889.bmp,True,Overweight
+3890,37.3574879227,Female,0,img_3890.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3890.bmp,True,Severely obese
+3891,25.1018693552,Female,0,img_3891.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3891.bmp,True,Overweight
+3892,34.1100591716,Female,0,img_3892.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3892.bmp,True,Moderately obese
+3893,30.7822485207,Female,0,img_3893.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3893.bmp,True,Moderately obese
+3894,42.9923555556,Male,0,img_3894.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3894.bmp,True,Very severely obese
+3895,28.7448888889,Male,0,img_3895.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3895.bmp,True,Overweight
+3896,45.4786809494,Male,0,img_3896.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3896.bmp,True,Very severely obese
+3897,30.7128754463,Male,0,img_3897.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3897.bmp,True,Moderately obese
+3898,33.2781065089,Female,0,img_3898.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3898.bmp,True,Moderately obese
+3899,24.6257988166,Female,0,img_3899.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3899.bmp,True,Normal
+3901,37.7587890625,Female,0,img_3901.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3901.bmp,True,Severely obese
+3902,36.6347566575,Female,0,img_3902.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3902.bmp,True,Severely obese
+3903,26.9515610652,Female,0,img_3903.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3903.bmp,True,Overweight
+3904,39.2837837838,Male,0,img_3904.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3904.bmp,True,Severely obese
+3905,29.7837837838,Male,0,img_3905.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3905.bmp,True,Overweight
+3908,34.576122449,Female,0,img_3908.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3908.bmp,True,Moderately obese
+3909,27.2591836735,Female,0,img_3909.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3909.bmp,True,Overweight
+3910,38.9669942051,Female,0,img_3910.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3910.bmp,True,Severely obese
+3911,32.7676996725,Female,0,img_3911.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3911.bmp,True,Moderately obese
+3912,28.1260813149,Female,0,img_3912.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3912.bmp,True,Overweight
+3913,21.2846020761,Female,0,img_3913.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3913.bmp,True,Normal
+3914,44.2199265381,Female,0,img_3914.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3914.bmp,True,Very severely obese
+3915,32.9228650138,Female,0,img_3915.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3915.bmp,True,Moderately obese
+3916,36.7162162162,Male,0,img_3916.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3916.bmp,True,Severely obese
+3917,30.5540540541,Male,0,img_3917.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3917.bmp,True,Moderately obese
+3918,22.6713249127,Female,0,img_3918.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3918.bmp,True,Normal
+3919,20.593120129,Female,0,img_3919.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3919.bmp,True,Normal
+3920,31.8215400624,Female,0,img_3920.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3920.bmp,True,Moderately obese
+3924,35.7059478726,Male,0,img_3924.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3924.bmp,True,Severely obese
+3925,29.4417464914,Male,0,img_3925.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3925.bmp,True,Overweight
+3926,32.4847721067,Male,0,img_3926.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3926.bmp,True,Moderately obese
+3927,25.1018693552,Male,0,img_3927.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3927.bmp,True,Overweight
+3928,26.6228558699,Male,0,img_3928.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3928.bmp,True,Overweight
+3929,22.0813098686,Male,0,img_3929.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3929.bmp,True,Normal
+3930,29.6464100346,Female,0,img_3930.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3930.bmp,True,Overweight
+3932,39.54375,Male,0,img_3932.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3932.bmp,True,Severely obese
+3933,26.3625,Male,0,img_3933.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3933.bmp,True,Overweight
+3934,52.3060815326,Female,0,img_3934.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3934.bmp,True,Very severely obese
+3935,31.9474270439,Female,0,img_3935.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3935.bmp,True,Moderately obese
+3936,32.9979591837,Male,0,img_3936.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3936.bmp,True,Moderately obese
+3937,25.8244897959,Male,0,img_3937.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3937.bmp,True,Overweight
+3938,34.5519848771,Male,0,img_3938.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3938.bmp,True,Moderately obese
+3939,24.6588951901,Male,0,img_3939.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3939.bmp,True,Normal
+3940,46.8249053241,Female,0,img_3940.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3940.bmp,True,Very severely obese
+3941,33.6700824237,Female,0,img_3941.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3941.bmp,True,Moderately obese
+3942,27.3167401806,Male,0,img_3942.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3942.bmp,True,Overweight
+3943,25.1018693552,Male,0,img_3943.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3943.bmp,True,Overweight
+3944,45.6168888889,Male,0,img_3944.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3944.bmp,True,Very severely obese
+3945,35.6186666667,Male,0,img_3945.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3945.bmp,True,Severely obese
+3946,44.7511574074,Male,0,img_3946.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3946.bmp,True,Very severely obese
+3947,23.7316743827,Male,0,img_3947.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3947.bmp,True,Normal
+3948,39.3267746914,Male,0,img_3948.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3948.bmp,True,Severely obese
+3949,28.7492283951,Male,0,img_3949.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3949.bmp,True,Overweight
+3950,39.7776787703,Female,0,img_3950.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3950.bmp,True,Severely obese
+3951,34.9229226999,Female,0,img_3951.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3951.bmp,True,Moderately obese
+3952,26.2539500144,Female,0,img_3952.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3952.bmp,True,Overweight
+3953,22.2148807814,Female,0,img_3953.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3953.bmp,True,Normal
+3954,30.4175593363,Male,0,img_3954.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3954.bmp,True,Moderately obese
+3955,24.5112371351,Male,0,img_3955.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3955.bmp,True,Normal
+3956,38.834068473,Male,0,img_3956.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3956.bmp,True,Severely obese
+3957,31.8941398866,Male,0,img_3957.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3957.bmp,True,Moderately obese
+3959,20.9184685578,Male,0,img_3959.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3959.bmp,True,Normal
+3960,39.0478079746,Male,0,img_3960.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3960.bmp,True,Severely obese
+3961,24.4048799841,Male,0,img_3961.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3961.bmp,True,Normal
+3962,39.3267746914,Male,0,img_3962.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3962.bmp,True,Severely obese
+3963,29.1560570988,Male,0,img_3963.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3963.bmp,True,Overweight
+3964,49.7607645453,Male,0,img_3964.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3964.bmp,True,Very severely obese
+3965,34.5519848771,Male,0,img_3965.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3965.bmp,True,Moderately obese
+3968,24.4772923875,Male,0,img_3968.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3968.bmp,True,Normal
+3969,24.0211937716,Male,0,img_3969.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3969.bmp,True,Normal
+3972,33.5134773892,Female,0,img_3972.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3972.bmp,True,Moderately obese
+3974,35.8708496094,Male,0,img_3974.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3974.bmp,True,Severely obese
+3975,24.5432128906,Male,0,img_3975.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3975.bmp,True,Normal
+3976,37.4455102041,Male,0,img_3976.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3976.bmp,True,Severely obese
+3977,29.5546938776,Male,0,img_3977.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3977.bmp,True,Overweight
+3978,41.3815789474,Male,0,img_3978.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3978.bmp,True,Very severely obese
+3979,30.4276315789,Male,0,img_3979.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3979.bmp,True,Moderately obese
+3980,31.7517089844,Female,0,img_3980.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3980.bmp,True,Moderately obese
+3981,24.3715820312,Female,0,img_3981.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3981.bmp,True,Normal
+3982,26.6027832031,Female,0,img_3982.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3982.bmp,True,Overweight
+3983,21.7971191406,Female,0,img_3983.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3983.bmp,True,Normal
+3984,46.1718896603,Male,0,img_3984.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3984.bmp,True,Very severely obese
+3985,29.4180896979,Male,0,img_3985.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3985.bmp,True,Overweight
+3986,48.5715332031,Female,0,img_3986.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3986.bmp,True,Very severely obese
+3987,29.0056152344,Female,0,img_3987.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3987.bmp,True,Overweight
+3988,40.7448096886,Male,0,img_3988.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3988.bmp,True,Very severely obese
+3989,35.4236591696,Male,0,img_3989.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3989.bmp,True,Severely obese
+3992,40.7656804734,Female,0,img_3992.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3992.bmp,True,Very severely obese
+3993,27.4544378698,Female,0,img_3993.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3993.bmp,True,Overweight
+3996,37.3020408163,Male,0,img_3996.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3996.bmp,True,Severely obese
+3997,25.5375510204,Male,0,img_3997.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3997.bmp,True,Overweight
+3998,41.2426666667,Male,0,img_3998.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3998.bmp,True,Very severely obese
+3999,28.7448888889,Male,0,img_3999.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_3999.bmp,True,Overweight
+4000,43.5743801653,Female,0,img_4000.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4000.bmp,True,Very severely obese
+4001,29.0495867769,Female,0,img_4001.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4001.bmp,True,Overweight
+4002,40.0297304107,Female,0,img_4002.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4002.bmp,True,Very severely obese
+4003,33.2990677753,Female,0,img_4003.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4003.bmp,True,Moderately obese
+4004,34.2991180334,Male,0,img_4004.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4004.bmp,True,Moderately obese
+4005,21.107149559,Male,0,img_4005.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4005.bmp,True,Normal
+4006,48.8097599683,Male,0,img_4006.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4006.bmp,True,Very severely obese
+4007,38.3505256893,Male,0,img_4007.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4007.bmp,True,Severely obese
+4008,84.9848888889,Male,0,img_4008.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4008.bmp,True,Very severely obese
+4009,41.8675555556,Male,0,img_4009.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4009.bmp,True,Very severely obese
+4010,41.3314255983,Female,0,img_4010.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4010.bmp,True,Very severely obese
+4011,36.7593652445,Female,0,img_4011.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4011.bmp,True,Severely obese
+4012,30.5502929688,Female,0,img_4012.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4012.bmp,True,Moderately obese
+4013,22.4836425781,Female,0,img_4013.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4013.bmp,True,Normal
+4014,22.6713249127,Female,0,img_4014.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4014.bmp,True,Normal
+4015,19.8374092986,Female,0,img_4015.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4015.bmp,True,Normal
+4016,33.2243441358,Male,0,img_4016.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4016.bmp,True,Moderately obese
+4017,27.7999614198,Male,0,img_4017.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4017.bmp,True,Overweight
+4020,46.2162162162,Male,0,img_4020.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4020.bmp,True,Very severely obese
+4021,31.7094594595,Male,0,img_4021.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4021.bmp,True,Moderately obese
+4022,26.8702222222,Male,0,img_4022.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4022.bmp,True,Overweight
+4023,24.3706666667,Male,0,img_4023.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4023.bmp,True,Normal
+4024,40.6018367347,Male,0,img_4024.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4024.bmp,True,Very severely obese
+4025,33.8587755102,Male,0,img_4025.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4025.bmp,True,Moderately obese
+4026,26.6057525952,Female,0,img_4026.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4026.bmp,True,Overweight
+4027,22.044766436,Female,0,img_4027.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4027.bmp,True,Normal
+4028,35.0702947846,Female,0,img_4028.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4028.bmp,True,Severely obese
+4029,32.5905769715,Female,0,img_4029.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4029.bmp,True,Moderately obese
+4030,43.0408163265,Female,0,img_4030.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4030.bmp,True,Very severely obese
+4031,34.5389266818,Female,0,img_4031.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4031.bmp,True,Moderately obese
+4032,66.5562130178,Male,0,img_4032.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4032.bmp,True,Very severely obese
+4033,42.4295857988,Male,0,img_4033.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4033.bmp,True,Very severely obese
+4034,33.9033589792,Male,0,img_4034.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4034.bmp,True,Moderately obese
+4035,29.2861700131,Male,0,img_4035.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4035.bmp,True,Overweight
+4036,35.6894923259,Male,0,img_4036.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4036.bmp,True,Severely obese
+4037,29.7610052285,Male,0,img_4037.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4037.bmp,True,Overweight
+4038,40.4225,Female,0,img_4038.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4038.bmp,True,Very severely obese
+4039,29.6822222222,Female,0,img_4039.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4039.bmp,True,Overweight
+4040,61.6496786042,Female,0,img_4040.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4040.bmp,True,Very severely obese
+4041,53.7417355372,Female,0,img_4041.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4041.bmp,True,Very severely obese
+4042,44.0201558721,Female,0,img_4042.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4042.bmp,True,Very severely obese
+4043,32.6844934157,Female,0,img_4043.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4043.bmp,True,Moderately obese
+4044,43.2615384615,Female,0,img_4044.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4044.bmp,True,Very severely obese
+4045,26.6224852071,Female,0,img_4045.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4045.bmp,True,Overweight
+4046,27.3167401806,Male,0,img_4046.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4046.bmp,True,Overweight
+4047,24.9542113001,Male,0,img_4047.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4047.bmp,True,Normal
+4048,38.0082179931,Male,0,img_4048.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4048.bmp,True,Severely obese
+4049,26.6057525952,Male,0,img_4049.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4049.bmp,True,Overweight
+4050,48.1765654394,Female,0,img_4050.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4050.bmp,True,Very severely obese
+4051,43.2644450417,Female,0,img_4051.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4051.bmp,True,Very severely obese
+4052,38.665,Male,0,img_4052.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4052.bmp,True,Severely obese
+4053,35.15,Male,0,img_4053.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4053.bmp,True,Severely obese
+4054,53.5998739761,Female,0,img_4054.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4054.bmp,True,Very severely obese
+4055,26.8737660155,Female,0,img_4055.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4055.bmp,True,Overweight
+4056,41.186240258,Female,0,img_4056.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4056.bmp,True,Very severely obese
+4057,28.3391561408,Female,0,img_4057.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4057.bmp,True,Overweight
+4058,46.0693131695,Female,0,img_4058.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4058.bmp,True,Very severely obese
+4059,34.5519848771,Female,0,img_4059.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4059.bmp,True,Moderately obese
+4060,40.4328994083,Female,0,img_4060.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4060.bmp,True,Very severely obese
+4061,32.1133727811,Female,0,img_4061.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4061.bmp,True,Moderately obese
+4062,30.5586072664,Female,0,img_4062.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4062.bmp,True,Moderately obese
+4063,25.0854238754,Female,0,img_4063.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4063.bmp,True,Overweight
+4064,60.1057329895,Male,0,img_4064.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4064.bmp,True,Very severely obese
+4065,57.7349732196,Male,0,img_4065.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4065.bmp,True,Very severely obese
+4066,33.9023919753,Male,0,img_4066.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4066.bmp,True,Moderately obese
+4067,26.9863040123,Male,0,img_4067.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4067.bmp,True,Overweight
+4068,32.0044224766,Female,0,img_4068.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4068.bmp,True,Moderately obese
+4069,24.6891259105,Female,0,img_4069.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4069.bmp,True,Normal
+4070,44.2199265381,Female,0,img_4070.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4070.bmp,True,Very severely obese
+4071,34.3753443526,Female,0,img_4071.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4071.bmp,True,Moderately obese
+4072,32.8870572511,Female,0,img_4072.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4072.bmp,True,Moderately obese
+4073,21.924704834,Female,0,img_4073.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4073.bmp,True,Normal
+4074,26.5784499055,Male,0,img_4074.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4074.bmp,True,Overweight
+4075,22.8869985297,Male,0,img_4075.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4075.bmp,True,Normal
+4076,34.006987369,Female,0,img_4076.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4076.bmp,True,Moderately obese
+4077,28.9059392636,Female,0,img_4077.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4077.bmp,True,Overweight
+4078,31.7464818315,Male,0,img_4078.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4078.bmp,True,Moderately obese
+4079,22.7393404747,Male,0,img_4079.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4079.bmp,True,Normal
+4080,32.8734211234,Female,0,img_4080.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4080.bmp,True,Moderately obese
+4081,21.3488309594,Female,0,img_4081.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4081.bmp,True,Normal
+4082,28.3627322199,Male,0,img_4082.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4082.bmp,True,Overweight
+4083,25.7243385251,Male,0,img_4083.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4083.bmp,True,Overweight
+4084,64.1899414062,Female,0,img_4084.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4084.bmp,True,Very severely obese
+4085,47.7133789062,Female,0,img_4085.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4085.bmp,True,Very severely obese
+4086,31.8820861678,Female,0,img_4086.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4086.bmp,True,Moderately obese
+4087,18.9521289997,Female,0,img_4087.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4087.bmp,True,Normal
+4088,33.9033589792,Male,0,img_4088.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4088.bmp,True,Moderately obese
+4089,28.4946519047,Male,0,img_4089.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4089.bmp,True,Overweight
+4090,44.1930943892,Male,0,img_4090.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4090.bmp,True,Very severely obese
+4091,24.4051416776,Male,0,img_4091.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4091.bmp,True,Normal
+4092,36.6145833333,Male,0,img_4092.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4092.bmp,True,Severely obese
+4093,30.9189814815,Male,0,img_4093.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4093.bmp,True,Moderately obese
+4094,35.5050505051,Female,0,img_4094.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4094.bmp,True,Severely obese
+4095,25.8218549128,Female,0,img_4095.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4095.bmp,True,Overweight
+4096,41.1396548304,Male,0,img_4096.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4096.bmp,True,Very severely obese
+4097,29.285855981,Male,0,img_4097.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4097.bmp,True,Overweight
+4098,31.3258101852,Female,0,img_4098.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4098.bmp,True,Moderately obese
+4099,24.4097222222,Female,0,img_4099.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4099.bmp,True,Normal
+4100,32.573847182,Female,0,img_4100.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4100.bmp,True,Moderately obese
+4101,21.4548897305,Female,0,img_4101.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4101.bmp,True,Normal
+4102,24.7813581315,Male,0,img_4102.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4102.bmp,True,Normal
+4103,23.5650951557,Male,0,img_4103.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4103.bmp,True,Normal
+4106,38.6169433594,Female,0,img_4106.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4106.bmp,True,Severely obese
+4107,28.3190917969,Female,0,img_4107.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4107.bmp,True,Overweight
+4108,24.6293252595,Male,0,img_4108.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4108.bmp,True,Normal
+4109,22.8049307958,Male,0,img_4109.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4109.bmp,True,Normal
+4110,46.0693131695,Female,0,img_4110.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4110.bmp,True,Very severely obese
+4111,37.5051459777,Female,0,img_4111.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4111.bmp,True,Severely obese
+4112,42.8208359588,Male,0,img_4112.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4112.bmp,True,Very severely obese
+4113,35.4379332073,Male,0,img_4113.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4113.bmp,True,Severely obese
+4114,27.9073724008,Male,0,img_4114.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4114.bmp,True,Overweight
+4115,23.6252888049,Male,0,img_4115.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4115.bmp,True,Normal
+4116,28.4069387755,Male,0,img_4116.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4116.bmp,True,Overweight
+4117,24.2463265306,Male,0,img_4117.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4117.bmp,True,Normal
+4118,34.7476586889,Female,0,img_4118.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4118.bmp,True,Moderately obese
+4119,25.237773153,Female,0,img_4119.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4119.bmp,True,Overweight
+4120,32.2532894737,Male,0,img_4120.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4120.bmp,True,Moderately obese
+4121,24.3421052632,Male,0,img_4121.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4121.bmp,True,Normal
+4122,30.4734471758,Male,0,img_4122.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4122.bmp,True,Moderately obese
+4123,23.4817038844,Male,0,img_4123.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4123.bmp,True,Normal
+4124,57.387755102,Male,0,img_4124.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4124.bmp,True,Very severely obese
+4125,27.2591836735,Male,0,img_4125.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4125.bmp,True,Overweight
+4126,26.6228558699,Female,0,img_4126.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4126.bmp,True,Overweight
+4127,21.2982846959,Female,0,img_4127.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4127.bmp,True,Normal
+4128,37.5852082869,Male,0,img_4128.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4128.bmp,True,Severely obese
+4129,30.6945867677,Male,0,img_4129.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4129.bmp,True,Moderately obese
+4130,31.2368164062,Female,0,img_4130.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4130.bmp,True,Moderately obese
+4131,22.6552734375,Female,0,img_4131.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4131.bmp,True,Normal
+4132,33.9436686391,Female,0,img_4132.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4132.bmp,True,Moderately obese
+4133,31.1150295858,Female,0,img_4133.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4133.bmp,True,Moderately obese
+4134,23.7075976989,Male,0,img_4134.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4134.bmp,True,Normal
+4135,22.7314024995,Male,0,img_4135.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4135.bmp,True,Normal
+4136,42.8208359588,Male,0,img_4136.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4136.bmp,True,Very severely obese
+4137,35.4379332073,Male,0,img_4137.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4137.bmp,True,Severely obese
+4138,37.7926998611,Male,0,img_4138.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4138.bmp,True,Severely obese
+4139,28.8674866098,Male,0,img_4139.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4139.bmp,True,Overweight
+4140,36.5764828304,Female,0,img_4140.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4140.bmp,True,Severely obese
+4141,26.517950052,Female,0,img_4141.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4141.bmp,True,Overweight
+4142,20.0857142857,Female,0,img_4142.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4142.bmp,True,Normal
+4143,18.6510204082,Female,0,img_4143.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4143.bmp,True,Normal
+4144,41.8675555556,Male,0,img_4144.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4144.bmp,True,Very severely obese
+4145,24.9955555556,Male,0,img_4145.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4145.bmp,True,Normal
+4148,40.6194571352,Female,0,img_4148.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4148.bmp,True,Very severely obese
+4149,30.2284332169,Female,0,img_4149.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4149.bmp,True,Moderately obese
+4150,40.9320710059,Female,0,img_4150.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4150.bmp,True,Very severely obese
+4151,37.1050887574,Female,0,img_4151.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4151.bmp,True,Severely obese
+4152,27.3167401806,Male,0,img_4152.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4152.bmp,True,Overweight
+4153,24.36357908,Male,0,img_4153.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4153.bmp,True,Normal
+4154,26.6027832031,Female,0,img_4154.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4154.bmp,True,Overweight
+4155,22.3120117188,Female,0,img_4155.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4155.bmp,True,Normal
+4156,46.6350156087,Female,0,img_4156.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4156.bmp,True,Very severely obese
+4157,40.2341311134,Female,0,img_4157.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4157.bmp,True,Very severely obese
+4158,28.3190917969,Female,0,img_4158.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4158.bmp,True,Overweight
+4159,25.9162597656,Female,0,img_4159.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4159.bmp,True,Overweight
+4160,32.0789359862,Female,0,img_4160.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4160.bmp,True,Moderately obese
+4161,27.0618512111,Female,0,img_4161.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4161.bmp,True,Overweight
+4162,48.1413966049,Male,0,img_4162.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4162.bmp,True,Very severely obese
+4163,40.9540895062,Male,0,img_4163.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4163.bmp,True,Very severely obese
+4164,33.7153061224,Male,0,img_4164.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4164.bmp,True,Moderately obese
+4165,25.8244897959,Male,0,img_4165.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4165.bmp,True,Overweight
+4166,39.1671428571,Male,0,img_4166.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4166.bmp,True,Severely obese
+4167,30.1285714286,Male,0,img_4167.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4167.bmp,True,Moderately obese
+4169,31.9474270439,Male,0,img_4169.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4169.bmp,True,Moderately obese
+4170,38.2418981481,Male,0,img_4170.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4170.bmp,True,Severely obese
+4171,22.2399691358,Male,0,img_4171.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4171.bmp,True,Normal
+4172,40.6828703704,Male,0,img_4172.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4172.bmp,True,Very severely obese
+4173,23.7316743827,Male,0,img_4173.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4173.bmp,True,Normal
+4176,26.4967268399,Male,0,img_4176.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4176.bmp,True,Overweight
+4177,22.3130331283,Male,0,img_4177.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4177.bmp,True,Normal
+4178,49.9445800781,Female,0,img_4178.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4178.bmp,True,Very severely obese
+4179,40.8481445312,Female,0,img_4179.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4179.bmp,True,Very severely obese
+4180,85.9870605469,Female,0,img_4180.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4180.bmp,True,Very severely obese
+4181,72.0849609375,Female,0,img_4181.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4181.bmp,True,Very severely obese
+4184,44.3320408163,Male,0,img_4184.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4184.bmp,True,Very severely obese
+4185,28.5504081633,Male,0,img_4185.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4185.bmp,True,Overweight
+4186,35.6183148808,Male,0,img_4186.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4186.bmp,True,Severely obese
+4187,27.7031337962,Male,0,img_4187.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4187.bmp,True,Overweight
+4188,35.3040540541,Male,0,img_4188.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4188.bmp,True,Severely obese
+4189,25.5472972973,Male,0,img_4189.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4189.bmp,True,Overweight
+4190,51.6911764706,Female,0,img_4190.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4190.bmp,True,Very severely obese
+4191,42.5692041522,Female,0,img_4191.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4191.bmp,True,Very severely obese
+4192,36.2435555556,Male,0,img_4192.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4192.bmp,True,Severely obese
+4193,30.9944888889,Male,0,img_4193.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4193.bmp,True,Moderately obese
+4194,31.6142011834,Female,0,img_4194.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4194.bmp,True,Moderately obese
+4195,26.289704142,Female,0,img_4195.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4195.bmp,True,Overweight
+4196,36.2435555556,Male,0,img_4196.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4196.bmp,True,Severely obese
+4197,28.7448888889,Male,0,img_4197.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4197.bmp,True,Overweight
+4198,27.1216568047,Female,0,img_4198.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4198.bmp,True,Overweight
+4199,24.9585798817,Female,0,img_4199.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4199.bmp,True,Normal
+4200,47.4671052632,Male,0,img_4200.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4200.bmp,True,Very severely obese
+4201,34.0789473684,Male,0,img_4201.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4201.bmp,True,Moderately obese
+4202,34.5647762747,Female,0,img_4202.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4202.bmp,True,Moderately obese
+4203,27.4323621228,Female,0,img_4203.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4203.bmp,True,Overweight
+4204,40.4928,Male,0,img_4204.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4204.bmp,True,Very severely obese
+4205,34.6188444444,Male,0,img_4205.bmp,/home/zhang/Code/ADSP_31018/Final/bmi_data/Images/img_4205.bmp,True,Moderately obese

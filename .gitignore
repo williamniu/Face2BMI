@@ -1,0 +1,25 @@
+# Local environments and caches
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
+
+# Provided data: keep folder structure only
+bmi_data/*
+!bmi_data/.gitkeep
+!bmi_data/Images/
+bmi_data/Images/*
+!bmi_data/Images/.gitkeep
+
+# Do not publish paper/PDF files
+paper.md
+*.pdf
+
+# Large generated model artifacts
+models/face2bmi_svr.joblib
+models/embeddings/*.npz
+
+# Runtime/editor noise
+*.log

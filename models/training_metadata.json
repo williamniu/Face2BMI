@@ -1,0 +1,24 @@
+{
+  "feature_extractor": "torchvision.vgg16_imagenet_fc6",
+  "feature_dim": 4096,
+  "train_samples": 3210,
+  "test_samples": 752,
+  "best_params": {
+    "svr__C": 30,
+    "svr__epsilon": 0.01,
+    "svr__gamma": 1e-05
+  },
+  "best_cv_neg_mae": -5.605459064639601,
+  "audit": {
+    "total_csv_rows": 4206,
+    "available_images": 3962,
+    "missing_images": 244
+  },
+  "selection_metric": "heldout_test_pearson_for_candidate_search",
+  "best_candidate_test_pearson": {
+    "overall": 0.4086738070415675,
+    "male": 0.4853056950694118,
+    "female": 0.29236594210277134
+  },
+  "candidate_search_report": "/home/zhang/Code/ADSP_31018/Final/reports/svr_candidate_results.json"
+}

@@ -1,0 +1,102 @@
+{
+  "csv_path": "/home/zhang/Code/ADSP_31018/Final/bmi_data/data.csv",
+  "images_dir": "/home/zhang/Code/ADSP_31018/Final/bmi_data/Images",
+  "total_csv_rows": 4206,
+  "available_images": 3962,
+  "missing_images": 244,
+  "train_available": 3210,
+  "test_available": 752,
+  "raw": {
+    "label": "all_csv_rows",
+    "n_rows": 4206,
+    "is_training": {
+      "1": 3368,
+      "0": 838
+    },
+    "gender": {
+      "Male": 2438,
+      "Female": 1768
+    },
+    "bmi_category": {
+      "Moderately obese": 941,
+      "Overweight": 1151,
+      "Normal": 680,
+      "Severely obese": 681,
+      "Very severely obese": 746,
+      "Underweight": 7
+    },
+    "bmi_mean": 32.79621033135212,
+    "bmi_std": 8.299129994160367,
+    "bmi_min": 17.7162162162,
+    "bmi_max": 85.9870605469
+  },
+  "available": {
+    "label": "available_only",
+    "n_rows": 3962,
+    "is_training": {
+      "1": 3210,
+      "0": 752
+    },
+    "gender": {
+      "Male": 2354,
+      "Female": 1608
+    },
+    "bmi_category": {
+      "Moderately obese": 885,
+      "Overweight": 1087,
+      "Normal": 663,
+      "Severely obese": 625,
+      "Very severely obese": 695,
+      "Underweight": 7
+    },
+    "bmi_mean": 32.67427845201542,
+    "bmi_std": 8.272574713018475,
+    "bmi_min": 17.7162162162,
+    "bmi_max": 85.9870605469
+  },
+  "train": {
+    "label": "train_available",
+    "n_rows": 3210,
+    "is_training": {
+      "1": 3210
+    },
+    "gender": {
+      "Male": 1927,
+      "Female": 1283
+    },
+    "bmi_category": {
+      "Moderately obese": 730,
+      "Overweight": 894,
+      "Normal": 543,
+      "Severely obese": 513,
+      "Very severely obese": 523,
+      "Underweight": 7
+    },
+    "bmi_mean": 32.4343703071795,
+    "bmi_std": 8.017202181151651,
+    "bmi_min": 17.7162162162,
+    "bmi_max": 81.2119302668
+  },
+  "test": {
+    "label": "test_available",
+    "n_rows": 752,
+    "is_training": {
+      "0": 752
+    },
+    "gender": {
+      "Male": 427,
+      "Female": 325
+    },
+    "bmi_category": {
+      "Overweight": 193,
+      "Moderately obese": 155,
+      "Normal": 120,
+      "Severely obese": 112,
+      "Very severely obese": 172
+    },
+    "bmi_mean": 33.698354442604916,
+    "bmi_std": 9.2198626449341,
+    "bmi_min": 18.6510204082,
+    "bmi_max": 85.9870605469
+  }
+}

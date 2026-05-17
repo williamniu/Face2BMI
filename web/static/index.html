@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Face-to-BMI Demo</title>
+  <link rel="stylesheet" href="/static/style.css?v=6" />
+</head>
+<body>
+  <div class="disclaimer-bar">
+    <strong>Educational demo only.</strong>
+    BMI estimates are noisy. This is only a final project, please don't sue me.
+  </div>
+
+  <header class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">ADSP 31018 Final Project</p>
+      <h1>Face-to-BMI Demo</h1>
+      <p class="subtitle">Real-time BMI estimation from a 224 x 224 face crop using pretrained CNN features and SVR.</p>
+    </div>
+  </header>
+
+  <main class="grid">
+    <section class="card primary-card">
+      <h2>Single image prediction</h2>
+      <p class="hint">Upload a face image, or use your webcam and center your face inside the square model-input guide.</p>
+      <input type="file" id="single-file" accept="image/*" />
+      <button id="btn-predict">Predict BMI</button>
+      <div class="camera-actions">
+        <button id="btn-camera" type="button">Start camera</button>
+        <button id="btn-capture" type="button" disabled>Capture from camera</button>
+      </div>
+      <div id="camera-status" class="camera-status">Camera is off.</div>
+      <div id="camera-panel" class="camera-panel hidden">
+        <div class="camera-frame">
+          <video id="camera-video" autoplay playsinline muted></video>
+          <div class="face-guide">
+            <span>224 x 224 model crop</span>
+          </div>
+        </div>
+        <p class="hint">Best result: face fills most of the square, looking forward, good lighting.</p>
+      </div>
+      <canvas id="camera-canvas" class="hidden"></canvas>
+      <div id="single-preview" class="preview"></div>
+      <div id="single-result" class="result"></div>
+    </section>
+
+    <section class="card secondary-card">
+      <h2>Compare two faces</h2>
+      <label>Image A <input type="file" id="file-a" accept="image/*" /></label>
+      <label>Image B <input type="file" id="file-b" accept="image/*" /></label>
+      <button id="btn-compare">Which is higher BMI?</button>
+      <div class="compare-previews">
+        <div id="preview-a" class="preview"></div>
+        <div id="preview-b" class="preview"></div>
+      </div>
+      <div id="compare-result" class="result"></div>
+    </section>
+
+    <section class="card full-width">
+      <h2>Test-set samples</h2>
+      <p class="hint">Click a sample to load it into single-image prediction.</p>
+      <div id="samples" class="samples"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Model: VGG16 ImageNet fc6 features + tuned SVR. Not identical to the paper's VGG-Face weights.</p>
+  </footer>
+
+  <script src="/static/app.js?v=6"></script>
+</body>
+</html>
