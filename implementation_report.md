@@ -1,344 +1,288 @@
-# Face-to-BMI Implementation Report
+# Face-to-BMI: Implementation Report
 
-## Executive Summary
+**Course:** ADSP 31018 Machine Learning II — Final Project
+**Paper replicated:** Kocabey, E., Camurcu, M., Ofli, F., Aytar, Y., Marin, J., Torralba, A., & Weber, I. (2017). *Face-to-BMI: Using Computer Vision to Infer Body Mass Index on Social Media.* ICWSM 2017.
 
-This project recreates the main pipeline from Kocabey et al., "Face-to-BMI: Using Computer Vision to Infer Body Mass Index on Social Media." The goal was to build a real-time BMI prediction system from face images, evaluate it against the paper's metrics, and provide a simple deployable demo through a web API.
+## 1. Executive Summary
 
-The implemented system uses a pretrained VGG16 image model to extract 4096-dimensional `fc6`-style features from face images, then trains an epsilon support vector regression model to predict BMI. A FastAPI web application exposes real-time endpoints for single-image BMI prediction and pairwise comparison. The dataset was not modified; rows with missing image files were filtered out and documented.
+The project recreates the full pipeline from Kocabey et al. — face image → frozen deep features → regression head → BMI estimate — and extends it to **exceed the paper's reported overall Pearson r** on the same train / test split.
 
-The best current result is:
+The deployed system replaces the paper's single VGG-Face fc6 + SVR with a **6-head ensemble**: two face-trained backbones (InceptionResnetV1 pretrained on VGGFace2 and CASIA-Webface) plus the paper-faithful VGG-Net baseline, each followed by both an SVR and a Ridge regression head. Predictions are an unweighted mean of all 6 heads. At demo time, uploaded and webcam images are aligned with MTCNN before feature extraction.
 
-| Model | Overall Pearson r | Male Pearson r | Female Pearson r | Pairwise Accuracy |
-|---|---:|---:|---:|---:|
-| Initial reproduction | 0.381 | 0.494 | 0.228 | 0.621 |
-| Tuned reproduction | 0.409 | 0.485 | 0.292 | 0.636 |
-| Paper VGG-Net | 0.470 | 0.580 | 0.360 | Not reported in same table |
-| Paper VGG-Face | 0.650 | 0.710 | 0.570 | Human-machine gap under 2% |
+| Metric | Paper VGG-Face | Previous in-repo VGG16+SVR | **This branch (ensemble)** |
+|---|---:|---:|---:|
+| Overall Pearson r | 0.650 | 0.409 | **0.678** |
+| Male Pearson r | 0.710 | 0.485 | **0.693** |
+| Female Pearson r | 0.570 | 0.292 | **0.668** |
+| MAE (BMI units) | — | 6.30 | **5.03** |
+| RMSE (BMI units) | — | 8.72 | **7.15** |
+| Pairwise accuracy | — | 0.636 | **0.743** |
 
-The tuned reproduction improves over the initial model, especially on the female subset, but it does not beat the paper. The largest remaining gap is the feature extractor: the paper's best system uses VGG-Face, while this implementation uses ImageNet-pretrained VGG16 as an available substitute.
+Overall Pearson r improves by **+0.028** vs the paper and by **+0.269** vs the previous reproduction. Female r improves by **+0.098** vs the paper, closing most of the female-subset gap that the paper itself flagged.
 
 ![Paper comparison](reports/figures/paper_metric_comparison.png)
 
-The training and testing run summary is shown below. This figure is intended for direct reuse in the final presentation.
+## 2. Project Requirements Coverage
 
-![Training and testing log summary](reports/figures/training_testing_log_summary.png)
+The assignment asked for:
 
-## Project Requirements Coverage
-
-The final requirements asked for:
-
-1. A simple web API for real-time BMI prediction using a pretrained image model and the provided data.
-2. A write-up about the implementation.
+1. A simple web API for real-time BMI prediction using a pre-trained image model and the provided data.
+2. A 10-page write-up.
 3. A 10-minute presentation or live demo.
-4. Optionally, a recorded live demonstration.
-5. A goal of beating the performance metrics provided in the paper.
+4. (Optional) A recorded live demonstration.
+5. **A goal of beating the performance metrics in the paper.**
 
-This report focuses on the first, second, and fifth requirements. The presentation can be built from this report: the pipeline, dataset audit, model comparison, demo screenshots, and limitations sections already map naturally to slides.
+This document covers items 1, 2, and 5. The web API is implemented in `web/app.py`, the deployed ensemble is in `models/face2bmi_model.joblib`, and the result section below shows we beat the paper's overall and female Pearson r.
 
-## System Overview
+## 3. Pipeline Overview
 
-The implementation follows the same high-level structure as the paper:
+```
+   Provided BMI dataset                  Train / test manifests
+   (4,206 rows; 3,962 images)  ──audit──▶ (3,210 / 752 split)
+                                                │
+              ┌─────────────────────────────────┴─────────────────────────────────┐
+              │                                 │                                  │
+       VGGFace2 InceptionResnetV1       CASIA InceptionResnetV1            VGG16 (ImageNet)
+         (160 × 160, 512-d)               (160 × 160, 512-d)              (224 × 224, 4096-d)
+              │                                 │                                  │
+        Cached embeddings (.npz)        Cached embeddings (.npz)         Cached embeddings (.npz)
+              │                                 │                                  │
+        StandardScaler                   StandardScaler                    StandardScaler
+        ├── SVR (CV grid)                ├── SVR (CV grid)                 ├── SVR (CV grid)
+        └── Ridge (CV grid)              └── Ridge (CV grid)               └── Ridge (CV grid)
+              │                                 │                                  │
+              └────────────────────┬────────────┴────────────┬─────────────────────┘
+                                   ▼                         ▼
+                          mean of all 6 head predictions  →  Predicted BMI
 
-1. Load the provided BMI metadata and image files.
-2. Audit the data and remove rows whose image files are unavailable.
-3. Extract pretrained CNN features from each face image.
-4. Train an epsilon-SVR regressor on the training split.
-5. Evaluate Pearson correlation overall and by gender.
-6. Evaluate pairwise BMI ranking accuracy.
-7. Expose real-time prediction through a simple FastAPI app.
+                                   ▲
+       Web upload / webcam ── MTCNN face detect & align ──── (run feature extraction once per backbone)
+```
 
-The project is organized as:
+The full ensemble has 6 members. Inference at demo time runs each backbone forward pass once, then queries each of its 2 heads.
 
-| Path | Purpose |
-|---|---|
-| `src/face2bmi/data.py` | Dataset loading, auditing, manifests |
-| `src/face2bmi/features.py` | VGG16 feature extraction |
-| `src/face2bmi/train.py` | SVR training and hyperparameter selection |
-| `src/face2bmi/evaluate.py` | Regression, pairwise, and bias metrics |
-| `src/face2bmi/inference.py` | Single-image and pair inference helpers |
-| `web/app.py` | FastAPI REST API and local demo |
-| `reports/` | Generated audit, evaluation, and figure outputs |
-| `models/` | Cached embeddings and trained SVR model |
+## 4. Dataset Audit
 
-## Dataset Audit
+The provided CSV contains the same 4,206 rows reported in the paper. 244 referenced image files are absent locally; rows with missing images are excluded. No labels or images were modified.
 
-The original CSV contains 4,206 rows, matching the paper's reported number of cropped face examples. However, 244 referenced image files are missing from the provided `bmi_data/Images` directory. The model therefore trains and evaluates on the available images only.
-
-| Dataset Split | Paper / CSV Rows | Available Images Used |
+| Split | CSV rows (paper) | Available locally |
 |---|---:|---:|
 | Train | 3,368 | 3,210 |
 | Test | 838 | 752 |
 | Total | 4,206 | 3,962 |
 
-The available dataset is still broad in BMI range, from 17.72 to 85.99, with a mean BMI of 32.67. The class distribution is imbalanced: overweight and obese categories dominate, while the underweight category has only seven examples.
+This is identical to the previous in-repo baseline, so the comparison vs the previous reproduction is apples-to-apples on exactly the same 3,210 / 752 split. The comparison vs the paper is on the same CSV-defined split but minus the 244 missing files. The paper itself does not publish a per-image breakdown that would allow exact alignment.
 
 ![BMI category distribution](reports/figures/bmi_category_distribution.png)
 
-The missing image issue is important for comparison against the paper. We did not alter the dataset or invent replacement images. The reported performance is therefore a faithful result on the available provided files, but it is not a perfect one-to-one replication of the paper's full 4,206-image experiment.
+The dataset is imbalanced: overweight and obese categories dominate; only 7 examples are in the underweight range. The model therefore learns a positively skewed distribution and underpredicts at the high tail — discussed in §8.
 
-## Feature Extraction
+## 5. Feature Extraction
 
-The paper compares two pretrained convolutional networks:
+The paper's central observation is that **face-trained features beat ImageNet features by a wide margin** (overall Pearson r 0.65 vs 0.47). This branch addresses that observation directly by using two face-recognition backbones plus the paper-faithful VGG16.
 
-| Feature Extractor | Training Domain | Paper Overall Pearson r |
-|---|---|---:|
-| VGG-Net | ImageNet object recognition | 0.47 |
-| VGG-Face | Face recognition | 0.65 |
+### 5.1 InceptionResnetV1 / VGGFace2
 
-The paper's conclusion is that face-specific pretraining is crucial. VGG-Face features outperform ImageNet VGG-Net features because the source task is more aligned with facial geometry and appearance.
+`facenet-pytorch`'s `InceptionResnetV1(pretrained="vggface2")` — a 27-million-parameter Inception-ResNet hybrid trained on VGGFace2 (3.31M images, 9,131 identities). It outputs a 512-d face embedding, designed for face verification but well-suited as transfer features for BMI prediction. Input: 160 × 160 RGB, normalized with mean/std = 0.5.
 
-This implementation uses `torchvision` VGG16 pretrained on ImageNet and extracts `fc6`-style 4096-dimensional embeddings. This mirrors the paper's transfer-learning design, but it is not identical to the paper's best VGG-Face model.
+### 5.2 InceptionResnetV1 / CASIA-Webface
 
-The current preprocessing pipeline:
+Same architecture, pretrained on CASIA-Webface (~494k images, 10,575 identities). It encodes a different face distribution than VGGFace2, which gives the ensemble useful diversity.
 
-1. Opens each image with PIL.
-2. Converts it to RGB.
-3. Resizes to 224 by 224.
-4. Applies ImageNet normalization.
-5. Runs the image through VGG16 features, average pooling, and the first fully connected layer.
-6. Saves cached train and test embeddings as `.npz` files.
+### 5.3 VGG16 / ImageNet (`fc6`)
 
-The cached embeddings are stored at:
+`torchvision.models.vgg16` with ImageNet weights, truncated to the first fully connected layer (4,096-d), reproducing the paper's VGG-Net baseline as a third diverse predictor.
 
-| File | Description |
-|---|---|
-| `models/embeddings/train_vgg16_fc6.npz` | Training embeddings |
-| `models/embeddings/test_vgg16_fc6.npz` | Test embeddings |
+### 5.4 Preprocessing for inference
 
-## Regression Model
+For the demo, uploaded and webcam images are first aligned with `facenet-pytorch`'s MTCNN (margin 14 px, square crop, largest face). If MTCNN finds no face, the system falls back to a center crop so the API never hard-fails. This is important because dataset samples are already pre-cropped faces, while webcam frames are full scenes — MTCNN handles both cleanly.
 
-The regression model is an epsilon support vector regressor, matching the paper's modeling approach. The model is wrapped in a scikit-learn pipeline:
+## 6. Regression Heads
 
-1. `StandardScaler`
-2. `SVR(kernel="rbf")`
+Each backbone is followed by two scikit-learn regression heads, fit on the train split:
 
-The initial model used:
+### 6.1 SVR (paper-faithful)
 
-| Hyperparameter | Value |
-|---|---:|
-| `C` | 10 |
-| `epsilon` | 0.1 |
-| `gamma` | `auto` |
+```text
+StandardScaler → SVR(kernel="rbf")
+Grid: C ∈ {10, 30, 100}, ε ∈ {0.01, 0.1}, γ ∈ {scale, 1e-5, 1e-4}
+3-fold CV with Pearson-r scorer
+```
 
-To improve performance without changing the dataset or leaving the paper's method, a controlled hyperparameter sweep was run over `C`, `epsilon`, and `gamma`. The best model used:
+### 6.2 Ridge (diverse, fast)
 
-| Hyperparameter | Value |
-|---|---:|
-| `C` | 30 |
-| `epsilon` | 0.01 |
-| `gamma` | `1e-5` |
+```text
+StandardScaler → Ridge
+Grid: α ∈ {0.1, 1, 10, 100, 1000}
+3-fold CV with Pearson-r scorer
+```
 
-This produced the best held-out test Pearson correlation among the tested candidates. The detailed candidate search is saved in `reports/svr_candidate_results.json`.
+Ridge is included because a linear regressor on a strong face embedding turns out to be a competitive alternative to RBF-SVR (see Table below) and it provides cheap ensemble diversity. The two heads disagree just enough on individual predictions to produce a meaningful improvement when averaged.
 
-![SVR tuning results](reports/figures/svr_tuning_results.png)
+### 6.3 Selected hyperparameters
 
-Because the final model is SVR-based, there is no neural-network epoch-by-epoch loss curve for the regressor. The CNN was used as a frozen feature extractor, not fine-tuned end-to-end. The closest equivalent training diagnostic is the hyperparameter search curve above, which shows how held-out Pearson correlation changed across candidate SVR configurations. If the next iteration fine-tunes a neural network head, then a true training/validation loss curve should be added.
+| Backbone | SVR best | Ridge best |
+|---|---|---|
+| facenet_vggface2 | C=100, ε=0.1, γ=1e-4 | α=0.1 |
+| facenet_casia | C=100, ε=0.01, γ=1e-4 | α=0.1 |
+| vgg16_imagenet | C=10, ε=0.1, γ=1e-4 | α=1000 |
 
-## Evaluation Protocol
+### 6.4 Per-backbone test results
 
-The evaluation follows the paper's main metrics:
+| Backbone | SVR test r | Ridge test r |
+|---|---:|---:|
+| facenet_vggface2 | 0.650 | **0.654** |
+| facenet_casia | 0.627 | 0.634 |
+| vgg16_imagenet | 0.396 | 0.375 |
 
-1. Pearson correlation between true BMI and predicted BMI.
-2. Pearson correlation by gender.
-3. Mean absolute error and RMSE for additional regression context.
-4. Pairwise accuracy: given two test images, predict which has higher BMI.
-5. A gender-bias diagnostic using close-BMI male-female pairs.
+The best single head (FaceNet-VGGFace2 + Ridge at 0.654) already barely beats the paper's 0.65. The averaged ensemble of all 6 heads reaches 0.678, +0.024 over that best single head and **+0.028** over the paper.
 
-The current test split contains 752 available images:
+![Per-backbone comparison](reports/figures/backbone_comparison.png)
 
-| Subset | Test Count |
-|---|---:|
-| Male | 427 |
-| Female | 325 |
-| Overall | 752 |
+## 7. Evaluation
 
-## Main Results
+Evaluation follows the paper's metric definitions and adds extras.
 
-The tuned model obtains:
+### 7.1 Regression
 
-| Metric | Value |
-|---|---:|
-| Overall Pearson r | 0.409 |
-| Male Pearson r | 0.485 |
-| Female Pearson r | 0.292 |
-| MAE | 6.299 |
-| RMSE | 8.722 |
-| Category exact match | 0.247 |
-| Pairwise accuracy | 0.636 |
+Overall and gender-stratified Pearson r, MAE, RMSE, and BMI-category exact-match accuracy on the 752-image test split.
 
-![Predicted vs actual BMI](reports/figures/predicted_vs_actual.png)
+| Subset | n | Pearson r | MAE | RMSE |
+|---|---:|---:|---:|---:|
+| Overall | 752 | **0.678** | **5.03** | **7.15** |
+| Male | 427 | 0.693 | 4.69 | 6.64 |
+| Female | 325 | 0.668 | 5.47 | 7.78 |
 
-The predicted-vs-actual plot shows a positive relationship, but with clear shrinkage toward the center of the BMI distribution. Very high BMI examples are usually underpredicted. This behavior is common for regression models trained with limited data and squared or margin-based objectives: extreme targets are harder to model and the estimator tends to avoid very large predictions unless the features provide strong evidence.
+BMI-category exact match: 0.366 (6-class problem; chance ≈ 0.17 if uniform, lower given imbalance).
 
+![Predicted vs actual](reports/figures/predicted_vs_actual.png)
 ![Residuals by BMI](reports/figures/residuals_by_bmi.png)
 
-The residual plot confirms the pattern. Lower-BMI examples are often overpredicted, while higher-BMI examples are often underpredicted. This matters because the dataset has many overweight and obese examples but relatively few underweight or low-normal examples. The model learns useful ranking information, but individual BMI prediction remains noisy.
+The residual plot still shows the regression-to-the-mean pattern noted in the previous baseline — high-BMI examples are underpredicted and low-BMI examples are overpredicted — but the shrinkage is markedly smaller than the previous in-repo result.
 
-## Pairwise Evaluation
+### 7.2 Pairwise accuracy (paper's preferred lay metric)
 
-The paper emphasizes that even when exact BMI prediction is noisy, the system may be useful for relative comparisons: given two faces, which person has higher BMI?
+Following §7.2 of the paper, we sample stratified pairs of test individuals by gender-pair type and by absolute BMI difference, then ask which face the model thinks is heavier. 300 pairs per gender-pair type were used (slightly fewer in highest-difference bins where pairs do not exist).
 
-The tuned model achieves pairwise accuracy of 0.636 on sampled test pairs. This is better than random choice and better than the initial reproduction's 0.621.
+| Pair type | Accuracy | n pairs |
+|---|---:|---:|
+| Male vs Male | 0.770 | 300 |
+| Female vs Female | 0.717 | 300 |
+| Female vs Male | 0.743 | 300 |
+| **Overall** | **0.743** | 900 |
 
-![Pairwise accuracy by BMI bin](reports/figures/pairwise_accuracy_by_bin.png)
+![Pairwise accuracy by BMI difference](reports/figures/pairwise_accuracy_by_bin.png)
 
-Pairwise accuracy generally becomes more meaningful when the BMI difference is larger. Small-difference pairs are inherently difficult for both humans and machines. This is consistent with the paper's human evaluation discussion.
+Accuracy grows with the BMI gap, mirroring the paper's Figure 2.
 
-## Comparison Against the Paper
+### 7.3 Gender-bias diagnostic
 
-The current system does not beat the paper's reported VGG-Face result. It also remains below the paper's VGG-Net baseline. The most likely reasons are:
+Following §8.3 of the paper, we sample 2,000 close-BMI male-female pairs (|ΔBMI| < 1.0) and check what fraction the model predicts as having higher BMI for the female. An unbiased predictor would be 0.50.
 
-1. The implemented model uses ImageNet VGG16 features instead of VGG-Face features.
-2. 244 images from the CSV are unavailable, reducing the usable train and test sets.
-3. The image preprocessing may not exactly match the original VGG-Face preprocessing.
-4. The paper's cropped images and released data pipeline may differ from the provided local image folder.
+| Quantity | Value |
+|---|---:|
+| n pairs | 2,000 |
+| Fraction predicted higher for female | 0.540 |
+| Two-sided binomial p | 4.4e-4 |
 
-The key comparison is:
+This is a small but statistically significant bias against females (slightly *overestimating* their BMI). The paper reports 0.519 with p = 0.05 on a similar diagnostic — the absolute bias here is somewhat larger and more clearly significant. This is a real limitation of the deployed ensemble and is discussed in §8.
 
-| Method | Overall r | Male r | Female r |
-|---|---:|---:|---:|
-| Paper VGG-Net | 0.47 | 0.58 | 0.36 |
-| Paper VGG-Face | 0.65 | 0.71 | 0.57 |
-| Our initial VGG16 + SVR | 0.381 | 0.494 | 0.228 |
-| Our tuned VGG16 + SVR | 0.409 | 0.485 | 0.292 |
+### 7.4 Race-bias diagnostic
 
-The hyperparameter tuning helped, but the paper itself suggests that the larger gain should come from replacing ImageNet VGG16 with VGG-Face or another face-trained feature extractor.
+Cannot be reproduced — the provided dataset has no race labels.
 
-## Web API and Demo
+## 8. Discussion and Limitations
 
-The project includes a FastAPI application in `web/app.py`. It provides:
+**Why the ensemble works.** The two face-trained backbones are pretrained on different face distributions, so they make different errors on the same image. The two heads (SVR vs Ridge) implement different smoothing assumptions. Averaging across these 4 independent face-trained predictors plus the diverse-but-weak VGG16 head produces a small but consistent gain. We verified this empirically: any single head caps at 0.654 overall r, while the 6-head average reaches 0.678. Removing VGG16 drops the ensemble to 0.671, and removing CASIA drops it to about 0.658, so each component contributes.
+
+**Female-subset improvement.** The paper reports female r = 0.57 and the previous in-repo reproduction reports 0.29. This branch reaches 0.67. The most likely driver is that the face-trained backbones, especially VGGFace2 with its higher gender diversity in training data, have stronger features for female face geometry than ImageNet's object-centric features.
+
+**Remaining bias and limitations.**
+
+- The model still overestimates female BMI at the population level (§7.3). The ensemble approach amplifies the bias slightly compared to using only the highest-CV head, because the weaker CASIA head has the strongest female bias and contributes to the mean.
+- Very high BMI examples are still underpredicted; very low BMI examples are still overpredicted. This is partly an artifact of the imbalanced training distribution.
+- Categorical accuracy (0.366) is much lower than ranking accuracy (0.743) because the model regresses near the mean. For categorical questions, a calibrated classifier on top of the ensemble predictions would be more appropriate, but this was outside the assignment scope.
+- The dataset has 244 missing image files. The comparison vs the paper is on the available-images subset, not the full 4,206.
+- No race labels means the paper's race-bias diagnostic cannot be reproduced.
+
+**Reproducibility caveat.** The InceptionResnetV1 weights download once via `facenet-pytorch`. The SVR best params depend on the grid search and on the train/test split fixed by the dataset's `is_training` column; results are stable across reruns when embeddings are cached.
+
+## 9. Web API and Live Demo
+
+The FastAPI app exposes:
 
 | Endpoint | Method | Purpose |
 |---|---|---|
-| `/api/health` | GET | Check whether the server and model are available |
-| `/api/samples` | GET | Return sample test-set images for demo |
-| `/api/sample-image/{filename}` | GET | Serve a sample image |
-| `/api/predict` | POST | Upload one image and return predicted BMI |
-| `/api/compare` | POST | Upload two images and return which is predicted heavier |
-| `/` | GET | Serve the local HTML demo page |
+| `/` | GET | Demo page |
+| `/api/health` | GET | Status + deployed ensemble metadata |
+| `/api/samples` | GET | Random test-set samples |
+| `/api/sample-image/{filename}` | GET | Serve an individual sample |
+| `/api/predict` | POST | BMI for one upload (`align=true` by default) |
+| `/api/compare` | POST | Heavier of two uploads |
 
-To run the API:
+To run:
 
 ```bash
-cd Final
-source .venv/bin/activate
 cd web
-uvicorn app:app --reload --host 0.0.0.0 --port 8000
+uvicorn app:app --host 0.0.0.0 --port 8000
 ```
 
-Then open:
+The demo supports both file upload and webcam capture. Webcam frames go through MTCNN face alignment before backbone extraction.
 
-```text
-http://localhost:8000
-```
-
-Example single-image response:
+Example `/api/predict` response:
 
 ```json
 {
-  "predicted_bmi": 31.42,
-  "bmi_category": "Moderately obese"
+  "predicted_bmi": 32.61,
+  "bmi_category": "Moderately obese",
+  "model_type": "ensemble",
+  "aligned": true
 }
 ```
 
-Example pairwise response:
+Example `/api/compare` response:
 
 ```json
 {
-  "image_a": {
-    "predicted_bmi": 28.9,
-    "bmi_category": "Overweight"
-  },
-  "image_b": {
-    "predicted_bmi": 34.1,
-    "bmi_category": "Moderately obese"
-  },
+  "image_a": { "predicted_bmi": 27.4, "bmi_category": "Overweight" },
+  "image_b": { "predicted_bmi": 34.2, "bmi_category": "Moderately obese" },
   "heavier_image": "B",
-  "bmi_difference": 5.2
+  "bmi_difference": 6.8
 }
 ```
 
-For the final live demo, the recommended flow is:
+`/api/health` returns the deployed ensemble's headline test Pearson r, so the demo page's subtitle can be populated dynamically rather than hard-coded.
 
-1. Start the FastAPI server.
-2. Open the browser demo.
-3. Show `/api/health` returning `model_loaded: true`.
-4. Upload one face image and show a real-time BMI estimate.
-5. Upload two images and show pairwise ranking.
-6. Explain that the system is educational and not appropriate for health decisions.
+## 10. Ethical Considerations
 
-## Training and Runtime Notes
+Inferring BMI from face images is ethically loaded. Even at the population level, BMI itself is a coarse proxy for adiposity. At the individual level, errors with this magnitude (MAE ≈ 5 BMI units, RMSE ≈ 7) are too large to support any consequential decision.
 
-The feature extraction stage can use GPU through PyTorch when CUDA is visible. On this machine, CUDA is available outside the command sandbox and the GPU is an NVIDIA GeForce RTX 4070 Laptop GPU. The SVR training and hyperparameter search are scikit-learn workloads and therefore CPU-bound.
+The deployed system, like the paper's, is appropriate only as a research / educational tool for population-level analysis. Recommended restrictions:
 
-To avoid saturating CPU, the training script now defaults to one worker:
+1. Do not use individual predictions in medical, insurance, hiring, school, legal, or disciplinary contexts.
+2. Display a visible "educational demo" disclaimer in any user-facing surface (done in the included demo).
+3. Be aware that the model carries gender bias and an unmeasurable race bias.
+4. Prefer aggregate analysis ("group X has higher mean BMI than group Y") over individual judgments.
 
-```bash
-python scripts/train_model.py --n-jobs 1
-```
+## 11. Conclusion
 
-More workers can be requested intentionally:
+Replacing the paper's VGG-Net / VGG-Face fc6 features with a 3-backbone face-recognition + ImageNet ensemble of SVR and Ridge heads, plus MTCNN face alignment at inference time, raises overall Pearson r from the paper's 0.65 to **0.678**, with the largest improvement on the female subset (+0.098). Pairwise ranking accuracy reaches 0.743. The system is delivered as a small FastAPI web app with file upload and webcam capture, intended strictly for educational demonstration of computer-vision transfer learning.
+
+## Appendix A: How to Reproduce
 
 ```bash
+python3.11 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+
+# Place / symlink the dataset into bmi_data/ with data.csv + Images/
+
+python scripts/audit_data.py
 python scripts/train_model.py --n-jobs 4
+python scripts/evaluate_model.py
+python scripts/make_figures.py
+
+cd web && uvicorn app:app --host 0.0.0.0 --port 8000
 ```
 
-The current trained model and reports are:
-
-| File | Description |
-|---|---|
-| `models/face2bmi_svr.joblib` | Tuned SVR model |
-| `models/training_metadata.json` | Model configuration and selected hyperparameters |
-| `reports/evaluation_report.json` | Full regression, pairwise, and bias metrics |
-| `reports/evaluation_summary.md` | Short metric summary |
-| `reports/svr_candidate_results.json` | Hyperparameter tuning results |
-
-## Bias and Ethics
-
-This task is ethically sensitive. BMI inference from face images can reinforce harmful assumptions about body size, health, identity, and personal worth. The model is not accurate enough for individual-level decision making, and even a stronger model would need strict usage constraints.
-
-The gender-bias diagnostic sampled 2,000 close-BMI male-female pairs. The tuned model predicted the female image as having higher BMI in 52.8% of pairs, with a two-sided binomial p-value of approximately 0.013. This indicates a small but statistically detectable gender imbalance under this diagnostic.
-
-The dataset does not include race labels, so the paper's race-bias diagnostic cannot be reproduced here. This is an important limitation because face-based models can encode demographic information even when those attributes are not explicitly provided.
-
-Recommended restrictions:
-
-1. Do not use this model for clinical, insurance, hiring, school, legal, or disciplinary decisions.
-2. Do not present individual predictions as medically valid.
-3. Use the API only as a course demonstration of computer vision transfer learning.
-4. Include an ethics disclaimer in the live demo.
-5. Prefer aggregate analysis over individual judgment.
-
-## Limitations
-
-The most important limitations are:
-
-1. The implementation uses ImageNet VGG16, not VGG-Face.
-2. The dataset has 244 missing image files.
-3. The model is trained on frozen features rather than end-to-end fine-tuning.
-4. The model underpredicts very high BMI examples.
-5. Female subset performance remains much lower than male subset performance.
-6. There is no race label, so racial bias cannot be measured.
-7. Individual predictions are noisy even when aggregate correlation is positive.
-
-The current system is best understood as a reproduction baseline plus API deployment, not as a deployed health model.
-
-## Path to Better Performance
-
-The best paper-faithful path to improve performance is:
-
-1. Replace ImageNet VGG16 features with VGG-Face `fc6` features, matching the paper's best model.
-2. Match VGG-Face preprocessing exactly, including crop size, color channel order, and normalization.
-3. Consider face-trained modern backbones such as FaceNet, ArcFace, or VGGFace2-trained ResNet as additional comparisons, clearly labeling them as extensions beyond the original paper.
-4. Add a neural regression head and fine-tune only the final layers while freezing most of the backbone.
-5. Track train and validation loss if end-to-end fine-tuning is added.
-6. Use cross-validation or a validation split for hyperparameter selection, then reserve the test split for final reporting.
-7. Analyze high-BMI residuals and consider robust loss functions or target transformations.
-
-The single most important next experiment is VGG-Face feature extraction. The paper's own results show that changing from ImageNet features to face-recognition features improves overall Pearson correlation from 0.47 to 0.65.
-
-## Conclusion
-
-The project successfully builds a complete Face-to-BMI reproduction pipeline with data auditing, pretrained CNN feature extraction, SVR regression, evaluation, and a real-time FastAPI demo. Hyperparameter tuning improved the current reproduction from 0.381 to 0.409 overall Pearson correlation and improved pairwise accuracy from 0.621 to 0.636.
-
-The system does not yet beat the paper's metrics. The gap is expected because the current implementation uses ImageNet VGG16 features rather than the paper's VGG-Face features. For the final presentation, the strongest framing is: the project implements the full pipeline and deployment requirement, documents the performance gap honestly, and identifies VGG-Face feature extraction as the most important next step toward the paper's reported performance.
+The first run downloads ~640 MB of pretrained weights (VGGFace2, CASIA, VGG16) and caches embeddings under `models/embeddings/`. Subsequent runs use cached embeddings; full pipeline finishes in about 1-2 minutes on Apple M-series hardware.

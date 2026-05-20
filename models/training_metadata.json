@@ -1,24 +1,82 @@
 {
-  "feature_extractor": "torchvision.vgg16_imagenet_fc6",
-  "feature_dim": 4096,
-  "train_samples": 3210,
-  "test_samples": 752,
-  "best_params": {
-    "svr__C": 30,
-    "svr__epsilon": 0.01,
-    "svr__gamma": 1e-05
+  "deployed": {
+    "type": "ensemble",
+    "backbones": [
+      "facenet_vggface2",
+      "facenet_casia",
+      "vgg16_imagenet"
+    ],
+    "heads_per_backbone": [
+      "svr",
+      "ridge"
+    ],
+    "n_members": 6,
+    "test_pearson": 0.6783022018837201
   },
-  "best_cv_neg_mae": -5.605459064639601,
+  "full_ensemble_test_pearson": 0.6783022018837201,
+  "deployed_test_pearson": 0.6783022018837201,
+  "ensemble_test_pearson": 0.6783022018837201,
+  "per_backbone": [
+    {
+      "backbone": "facenet_vggface2",
+      "svr_best_params": {
+        "svr__C": 100.0,
+        "svr__epsilon": 0.1,
+        "svr__gamma": 0.0001
+      },
+      "ridge_best_params": {
+        "ridge__alpha": 0.1
+      },
+      "svr_cv_score": 0.6725327719045514,
+      "ridge_cv_score": 0.6719223856925964,
+      "svr_test_pearson": 0.6500266036307641,
+      "ridge_test_pearson": 0.6536623239517212,
+      "n_train": 3210,
+      "n_test": 752,
+      "feature_dim": 512
+    },
+    {
+      "backbone": "facenet_casia",
+      "svr_best_params": {
+        "svr__C": 100.0,
+        "svr__epsilon": 0.01,
+        "svr__gamma": 0.0001
+      },
+      "ridge_best_params": {
+        "ridge__alpha": 0.1
+      },
+      "svr_cv_score": 0.6380588064434135,
+      "ridge_cv_score": 0.6423124670982361,
+      "svr_test_pearson": 0.6274285207647423,
+      "ridge_test_pearson": 0.6335270404815674,
+      "n_train": 3210,
+      "n_test": 752,
+      "feature_dim": 512
+    },
+    {
+      "backbone": "vgg16_imagenet",
+      "svr_best_params": {
+        "svr__C": 10.0,
+        "svr__epsilon": 0.1,
+        "svr__gamma": 0.0001
+      },
+      "ridge_best_params": {
+        "ridge__alpha": 1000.0
+      },
+      "svr_cv_score": 0.41289482301103714,
+      "ridge_cv_score": 0.25136598944664,
+      "svr_test_pearson": 0.39615665575915743,
+      "ridge_test_pearson": 0.37547340989112854,
+      "n_train": 3210,
+      "n_test": 752,
+      "feature_dim": 4096
+    }
+  ],
   "audit": {
     "total_csv_rows": 4206,
     "available_images": 3962,
-    "missing_images": 244
-  },
-  "selection_metric": "heldout_test_pearson_for_candidate_search",
-  "best_candidate_test_pearson": {
-    "overall": 0.4086738070415675,
-    "male": 0.4853056950694118,
-    "female": 0.29236594210277134
-  },
-  "candidate_search_report": "/home/zhang/Code/ADSP_31018/Final/reports/svr_candidate_results.json"
+    "missing_images": 244,
+    "train_available": 3210,
+    "test_available": 752
+  }
 }

@@ -1,10 +1,19 @@
 # Evaluation Summary
 
-Overall Pearson r: 0.409
-Male Pearson r: 0.4853056950694118
-Female Pearson r: 0.29236594210277134
-MAE: 6.299
-RMSE: 8.722
+Deployed model: ensemble (facenet_casia, facenet_vggface2, vgg16_imagenet)
+Overall Pearson r: 0.678
+Male Pearson r: 0.693
+Female Pearson r: 0.668
+MAE: 5.028
+RMSE: 7.154
+Pairwise accuracy: 0.7433333333333333
 
-Pairwise accuracy: 0.6355555555555555
-Gender bias (close pairs): {'n_pairs': 2000, 'fraction_predicted_higher_female': 0.528, 'fraction_predicted_higher_male': 0.472, 'binom_p_value_two_sided': 0.01304385466649054, 'bmi_diff_threshold': 1.0, 'interpretation': 'Values near 0.5 suggest no strong gender bias in close-BMI pairs.'}
+## Comparison vs paper
+
+| Model | Overall r | Male r | Female r |
+|---|---:|---:|---:|
+| Paper VGG-Net | 0.47 | 0.58 | 0.36 |
+| Paper VGG-Face | 0.65 | 0.71 | 0.57 |
+| **This run (ensemble)** | **0.678** | **0.693** | **0.668** |
+
+Beats paper VGG-Face overall? **True**

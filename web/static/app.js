@@ -208,4 +208,28 @@ async function loadSamples() {
   }
 }
 
+async function loadModelInfo() {
+  const el = document.getElementById("model-summary");
+  if (!el) return;
+  try {
+    const res = await fetch("/api/health");
+    const info = await res.json();
+    if (!info.deployed) {
+      el.textContent = "Model not yet trained.";
+      return;
+    }
+    const dep = info.deployed;
+    const r = info.ensemble_test_pearson;
+    const rTxt = typeof r === "number" ? r.toFixed(3) : "n/a";
+    if (dep.type === "ensemble") {
+      el.textContent = `Deployed: ensemble of ${dep.backbones.join(" + ")} — ensemble test Pearson r = ${rTxt}`;
+    } else {
+      el.textContent = `Deployed: ${dep.backbone} (${dep.head}) — ensemble test Pearson r = ${rTxt}`;
+    }
+  } catch (e) {
+    el.textContent = "";
+  }
+}
+
+loadModelInfo();
 loadSamples();
