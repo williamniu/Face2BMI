@@ -19,7 +19,10 @@ paper.md
 
 # Large generated model artifacts
 models/face2bmi_svr.joblib
+models/face2bmi_model.joblib
 models/embeddings/*.npz
+models/mlp_head_*.pt
+models/mlp_head_*.json
 
 # Runtime/editor noise
 *.log

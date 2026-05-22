@@ -1,7 +1,12 @@
-"""Single-image and pair inference for demo."""
+"""Single-image and pair inference for the demo.
+
+Loads the deployed model artifact (single backbone or ensemble), extracts
+embeddings on demand, and applies optional MTCNN face alignment for uploads.
+"""
 
 from __future__ import annotations
 
+from functools import lru_cache
 from io import BytesIO
 from pathlib import Path
 
@@ -9,75 +14,82 @@ import numpy as np
 import torch
 from PIL import Image
 
-from face2bmi.config import INPUT_SIZE
+from face2bmi.align import align_face
+from face2bmi.config import BACKBONES, DEFAULT_BACKBONE
 from face2bmi.data import bmi_category
-from face2bmi.features import VGGFeatureExtractor, get_preprocess
+from face2bmi.features import build_backbone, get_preprocess
 from face2bmi.train import load_trained_model
 
 
-_extractor: VGGFeatureExtractor | None = None
-_model = None
+@lru_cache(maxsize=4)
+def _extractor(backbone: str):
+    return build_backbone(backbone)
 
 
-def _get_extractor() -> VGGFeatureExtractor:
-    global _extractor
-    if _extractor is None:
-        _extractor = VGGFeatureExtractor()
-    return _extractor
+@lru_cache(maxsize=1)
+def _model():
+    return load_trained_model()
 
 
-def _get_model():
-    global _model
-    if _model is None:
-        _model = load_trained_model()
-    return _model
+@lru_cache(maxsize=4)
+def _preprocess(backbone: str):
+    return get_preprocess(backbone)
 
 
-def image_to_tensor(image: Image.Image) -> torch.Tensor:
-    preprocess = get_preprocess()
-    return preprocess(image.convert("RGB")).unsqueeze(0)
+def _backbone_input_size(backbone: str) -> int:
+    return BACKBONES[backbone]["input_size"]
 
 
-def extract_features_from_image(image: Image.Image) -> np.ndarray:
-    tensor = image_to_tensor(image)
-    extractor = _get_extractor()
-    return extractor.extract_batch(tensor)
+def _featurize(image: Image.Image, backbone: str, align: bool) -> np.ndarray:
+    if align:
+        image = align_face(image, image_size=_backbone_input_size(backbone))
+    tensor = _preprocess(backbone)(image.convert("RGB")).unsqueeze(0)
+    device = next(_extractor(backbone).backbone.parameters()).device
+    with torch.inference_mode():
+        out = _extractor(backbone)(tensor.to(device))
+    return out.detach().cpu().numpy()
 
 
-def extract_features_from_path(path: str | Path) -> np.ndarray:
-    img = Image.open(path).convert("RGB")
-    return extract_features_from_image(img)
+def _predict_bmi(image: Image.Image, align: bool = True) -> float:
+    artifact = _model()
+    if artifact["type"] == "single":
+        feats = _featurize(image, artifact["backbone"], align=align)
+        return float(artifact["estimator"].predict(feats)[0])
+    # ensemble: featurize each unique backbone once, then average all member heads
+    backbones = sorted({m["backbone"] for m in artifact["members"]})
+    feats_by_bb = {bb: _featurize(image, bb, align=align) for bb in backbones}
+    preds = [
+        m["estimator"].predict(feats_by_bb[m["backbone"]])[0]
+        for m in artifact["members"]
+    ]
+    return float(np.mean(preds))
 
 
-def extract_features_from_bytes(data: bytes) -> np.ndarray:
-    img = Image.open(BytesIO(data)).convert("RGB")
-    return extract_features_from_image(img)
-
-
-def predict_bmi_from_features(features: np.ndarray) -> float:
-    model = _get_model()
-    if features.ndim == 1:
-        features = features.reshape(1, -1)
-    return float(model.predict(features)[0])
-
-
-def predict_bmi_from_image(image: Image.Image) -> dict:
-    features = extract_features_from_image(image)
-    bmi = predict_bmi_from_features(features)
+def predict_bmi_from_image(image: Image.Image, align: bool = True) -> dict:
+    bmi = _predict_bmi(image, align=align)
     return {
         "predicted_bmi": round(bmi, 2),
         "bmi_category": bmi_category(bmi),
+        "model_type": _model()["type"],
+        "aligned": align,
     }
 
 
-def predict_bmi_from_bytes(data: bytes) -> dict:
+def predict_bmi_from_bytes(data: bytes, align: bool = True) -> dict:
     img = Image.open(BytesIO(data)).convert("RGB")
-    return predict_bmi_from_image(img)
+    return predict_bmi_from_image(img, align=align)
 
 
-def compare_pair(image_a: Image.Image, image_b: Image.Image) -> dict:
-    pred_a = predict_bmi_from_image(image_a)
-    pred_b = predict_bmi_from_image(image_b)
+def predict_bmi_from_path(path: str | Path, align: bool = True) -> dict:
+    img = Image.open(path).convert("RGB")
+    return predict_bmi_from_image(img, align=align)
+
+
+def compare_pair(
+    image_a: Image.Image, image_b: Image.Image, align: bool = True
+) -> dict:
+    pred_a = predict_bmi_from_image(image_a, align=align)
+    pred_b = predict_bmi_from_image(image_b, align=align)
     bmi_a, bmi_b = pred_a["predicted_bmi"], pred_b["predicted_bmi"]
     if abs(bmi_a - bmi_b) < 1e-6:
         heavier = "tie"
@@ -93,7 +105,19 @@ def compare_pair(image_a: Image.Image, image_b: Image.Image) -> dict:
     }
 
 
-def compare_pair_from_bytes(data_a: bytes, data_b: bytes) -> dict:
+def compare_pair_from_bytes(
+    data_a: bytes, data_b: bytes, align: bool = True
+) -> dict:
     img_a = Image.open(BytesIO(data_a)).convert("RGB")
     img_b = Image.open(BytesIO(data_b)).convert("RGB")
-    return compare_pair(img_a, img_b)
+    return compare_pair(img_a, img_b, align=align)
+
+
+# Legacy helpers kept for any external callers.
+def extract_features_from_image(image: Image.Image) -> np.ndarray:
+    return _featurize(image, DEFAULT_BACKBONE, align=False)
+
+
+def extract_features_from_bytes(data: bytes) -> np.ndarray:
+    img = Image.open(BytesIO(data)).convert("RGB")
+    return _featurize(img, DEFAULT_BACKBONE, align=False)

@@ -1,6 +1,6 @@
 {
-  "csv_path": "/home/zhang/Code/ADSP_31018/Final/bmi_data/data.csv",
-  "images_dir": "/home/zhang/Code/ADSP_31018/Final/bmi_data/Images",
+  "csv_path": "/Users/matteomirgone/Documents/GitHub/Face2BMI/bmi_data/data.csv",
+  "images_dir": "/Users/matteomirgone/Documents/GitHub/Face2BMI/bmi_data/Images",
   "total_csv_rows": 4206,
   "available_images": 3962,
   "missing_images": 244,

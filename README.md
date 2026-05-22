@@ -1,300 +1,156 @@
-# Face-to-BMI Recreation
+# Face-to-BMI
 
-Reimplementation of **Face-to-BMI: Using Computer Vision to Infer Body Mass Index on Social Media** by Kocabey et al. (ICWSM 2017), using the provided `bmi_data` dataset.
+Reimplementation **and improvement** of *Face-to-BMI: Using Computer Vision to Infer Body Mass Index on Social Media* by Kocabey et al. (ICWSM 2017).
 
-This repository contains the full final-project package: source code, trained model, generated evaluation reports, figures, write-up, and a local FastAPI demo website with upload and webcam capture.
+This branch (`improve-performance`) **beats the paper's overall Pearson r** on the same train/test split by replacing the paper's VGG-Face fc6 extractor with two modern face-trained backbones (InceptionResnetV1 pretrained on VGGFace2 and CASIA-Webface) and ensembling Ridge + SVR heads per backbone.
+
+## Headline Result
+
+| Method | Overall r | Male r | Female r | Pairwise acc. |
+|---|---:|---:|---:|---:|
+| Paper VGG-Net | 0.470 | 0.580 | 0.360 | — |
+| Paper VGG-Face | 0.650 | 0.710 | 0.570 | — |
+| Previous repo (VGG16 + SVR) | 0.409 | 0.485 | 0.292 | 0.636 |
+| **This branch (ensemble)** | **0.678** | **0.693** | **0.668** | **0.743** |
+
+Overall Pearson r improves by **+0.028** vs the paper's best (and **+0.269** vs the previous in-repo baseline). The largest gain is on the female subset (**+0.098** vs paper, +0.376 vs previous repo), addressing the female-underperformance limitation flagged in the paper.
+
+![Paper comparison](reports/figures/paper_metric_comparison.png)
+
+## What Changed vs the Previous Reproduction
+
+| Component | Previous | This branch |
+|---|---|---|
+| Feature extractor | torchvision VGG16 fc6 (ImageNet) | **InceptionResnetV1 / VGGFace2** + **InceptionResnetV1 / CASIA-Webface** + torchvision VGG16 fc6 |
+| Regression head | Single tuned SVR | **SVR + Ridge per backbone, averaged ensemble** |
+| Webcam / upload alignment | Raw resize to 224 × 224 | **MTCNN face detect+align** (facenet-pytorch), 160 × 160 |
+| Crops sizes | 224 × 224 only | 160 × 160 for face backbones, 224 × 224 for VGG16 |
+| Hardware acceleration | CPU/CUDA | CPU/CUDA/**MPS** (Apple Silicon) |
+| Web API model artifact | Single SVR | Ensemble payload with multi-backbone members |
 
 ## Quick Start
 
-Clone or open this repository, then run from the repository root:
+From the repo root:
 
 ```bash
+python3.11 -m venv .venv
 source .venv/bin/activate
-cd web
-uvicorn app:app --host 0.0.0.0 --port 8000
+python -m pip install -r requirements.txt
+
+# Place / symlink the dataset into bmi_data/ (must contain data.csv + Images/).
+
+python scripts/audit_data.py
+python scripts/train_model.py --n-jobs 4         # ~3-5 min on Apple M-series; embeddings cached after first run
+python scripts/evaluate_model.py
+python scripts/make_figures.py
+
+cd web && uvicorn app:app --host 0.0.0.0 --port 8000
 ```
 
-Open one of these URLs in a normal browser:
-
-```text
-http://127.0.0.1:8000
-http://localhost:8000
-```
-
-Use a normal Chrome/Edge browser for webcam capture. Embedded IDE browsers may block camera permissions.
-
-To stop the server, press `Ctrl+C` in the terminal running `uvicorn`.
-
-If the repository was cloned without model artifacts, follow the setup and reproduction steps below before running the demo.
-
-## What the Demo Does
-
-The web demo supports:
-
-- Uploading one face image and predicting BMI.
-- Starting the webcam, aligning the face inside a square `224 x 224` model-input guide, capturing a frame, and predicting BMI.
-- Uploading two face images and predicting which one has higher BMI.
-- Loading sample test-set images for quick demonstration.
-
-The API is implemented in `web/app.py` and exposes:
-
-| Endpoint | Method | Purpose |
-|---|---|---|
-| `/` | GET | Demo website |
-| `/api/health` | GET | Server/model health check |
-| `/api/samples` | GET | Sample test-set images |
-| `/api/sample-image/{filename}` | GET | Serve a sample image |
-| `/api/predict` | POST | Predict BMI for one uploaded image |
-| `/api/compare` | POST | Compare two uploaded images |
-
-## Current Results
-
-The final tuned model uses VGG16 ImageNet `fc6`-style embeddings plus epsilon-SVR.
-
-| Metric | Value |
-|---|---:|
-| Overall Pearson r | 0.409 |
-| Male Pearson r | 0.485 |
-| Female Pearson r | 0.292 |
-| MAE | 6.299 |
-| RMSE | 8.722 |
-| Pairwise accuracy | 0.636 |
-
-The paper reports stronger performance with VGG-Face features:
-
-| Method | Overall r | Male r | Female r |
-|---|---:|---:|---:|
-| Paper VGG-Net | 0.47 | 0.58 | 0.36 |
-| Paper VGG-Face | 0.65 | 0.71 | 0.57 |
-| This reproduction | 0.409 | 0.485 | 0.292 |
-
-The most important remaining performance gap is the feature extractor: the original paper's best result uses VGG-Face, while this implementation uses `torchvision` VGG16 pretrained on ImageNet.
+Then open `http://127.0.0.1:8000`.
 
 ## Project Layout
 
 ```text
 .
-├── bmi_data/
+├── bmi_data/                    # Symlink or copy of the provided BMI dataset
 │   ├── data.csv
-│   └── Images/
+│   └── Images/                  # 3,962 BMP face crops (244 referenced files missing)
 ├── models/
-│   ├── embeddings/
-│   │   ├── train_vgg16_fc6.npz
-│   │   └── test_vgg16_fc6.npz
-│   ├── face2bmi_svr.joblib
+│   ├── embeddings/              # Cached per-backbone .npz embeddings
+│   ├── face2bmi_model.joblib    # Deployed ensemble artifact
 │   └── training_metadata.json
 ├── reports/
-│   ├── figures/
-│   ├── manifests/
+│   ├── figures/                 # Generated by scripts/make_figures.py
+│   ├── manifests/               # Train/test/missing manifests
 │   ├── dataset_audit.json
 │   ├── evaluation_report.json
-│   ├── evaluation_summary.md
-│   └── svr_candidate_results.json
+│   └── evaluation_summary.md
 ├── scripts/
 │   ├── audit_data.py
-│   ├── train_model.py
-│   └── evaluate_model.py
+│   ├── train_model.py           # Full train + ensemble selection
+│   ├── evaluate_model.py
+│   ├── make_figures.py
+│   └── finetune_head.py         # Optional MLP head extension
 ├── src/face2bmi/
-│   ├── config.py
-│   ├── data.py
-│   ├── evaluate.py
-│   ├── features.py
-│   ├── inference.py
-│   └── train.py
+│   ├── align.py                 # MTCNN face alignment for uploads
+│   ├── config.py                # Backbone registry + ensemble config
+│   ├── data.py                  # Audit + manifests
+│   ├── evaluate.py              # Regression + pairwise + bias metrics
+│   ├── features.py              # Multi-backbone feature extraction
+│   ├── finetune.py              # Optional MLP regression head
+│   ├── inference.py             # Demo-time prediction (uses MTCNN)
+│   └── train.py                 # SVR + Ridge ensemble training
 ├── web/
-│   ├── app.py
-│   └── static/
-│       ├── index.html
-│       ├── style.css
-│       └── app.js
+│   ├── app.py                   # FastAPI server
+│   └── static/                  # HTML + JS + CSS
 ├── implementation_report.md
-├── paper.md
 ├── requirements.txt
 └── README.md
 ```
 
-## Repository Artifact Notes
+## How the Ensemble Works
 
-This project can be used as a standalone GitHub repository. Do not commit the virtual environment:
+For each of the three backbones (`facenet_vggface2`, `facenet_casia`, `vgg16_imagenet`):
 
-```text
-.venv/
-```
+1. Resize image to the backbone's native input (160 × 160 for face backbones, 224 × 224 for VGG16) and normalize.
+2. Run a frozen forward pass to get a fixed embedding (512-d face / 4096-d VGG16).
+3. Train two heads independently on the train split:
+   - `StandardScaler → SVR(kernel='rbf')` with a small grid over (C, ε, γ).
+   - `StandardScaler → Ridge` with a small grid over α.
+4. Pick best CV Pearson r per head.
 
-The trained model and cached embeddings are generated artifacts:
+At inference, all 6 heads (3 backbones × 2 heads) predict a BMI; the deployed prediction is the **simple unweighted mean** of all 6. Averaging diverse weak learners is what pushes the ensemble (0.678) above any single head (best single = 0.654, FaceNet/VGGFace2 + Ridge).
 
-```text
-models/face2bmi_svr.joblib
-models/embeddings/*.npz
-```
+| Backbone | SVR r | Ridge r |
+|---|---:|---:|
+| facenet_vggface2 (VGGFace2) | 0.650 | 0.654 |
+| facenet_casia (CASIA-Webface) | 0.627 | 0.634 |
+| vgg16_imagenet | 0.396 | 0.375 |
+| **Ensemble of all 6 heads** | — | **0.678** |
 
-Include them if the repo must run the demo immediately after cloning. Exclude them if the repo should stay lightweight; in that case, users can regenerate them with `python scripts/train_model.py --force-features --n-jobs 1`.
+![Backbone comparison](reports/figures/backbone_comparison.png)
 
-The dataset folder is required for full retraining and sample-image demo behavior:
+## Web API and Demo
 
-```text
-bmi_data/data.csv
-bmi_data/Images/
-```
+`web/app.py` exposes:
 
-Before publishing publicly, confirm that sharing the provided image data is allowed by the course/data license.
+| Endpoint | Method | Purpose |
+|---|---|---|
+| `/` | GET | Demo page (single upload + webcam, pair compare, sample browser) |
+| `/api/health` | GET | Reports deployed ensemble + headline Pearson r |
+| `/api/samples` | GET | Sample test-set images |
+| `/api/sample-image/{filename}` | GET | Serve a sample image |
+| `/api/predict` | POST | Predict BMI for one upload (optional `align=true/false`) |
+| `/api/compare` | POST | Predict heavier of two uploads |
 
-## Reproducible Setup
+By default uploaded / webcam frames go through MTCNN face alignment first; the pre-cropped sample images can be predicted with `align=false`.
 
-Create and activate a local virtual environment:
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
-```
-
-If you already have a working `.venv`, you can activate it directly instead of recreating it.
-
-## Reproduce the Pipeline
-
-Run these commands from the repository root with the virtual environment activated.
-
-### 1. Audit Dataset
+## Reproducing the Result
 
 ```bash
 python scripts/audit_data.py
-```
-
-Outputs:
-
-- `reports/dataset_audit.json`
-- `reports/manifests/full_manifest.csv`
-- `reports/manifests/train_manifest.csv`
-- `reports/manifests/test_manifest.csv`
-- `reports/manifests/missing_images.csv`
-
-### 2. Train Model
-
-```bash
-python scripts/train_model.py --n-jobs 1
-```
-
-This trains the SVR model using cached embeddings when available. If embeddings are missing or need to be regenerated:
-
-```bash
-python scripts/train_model.py --force-features --n-jobs 1
-```
-
-Use more CPU workers only when desired:
-
-```bash
 python scripts/train_model.py --n-jobs 4
-```
-
-Outputs:
-
-- `models/embeddings/*.npz`
-- `models/face2bmi_svr.joblib`
-- `models/training_metadata.json`
-
-### 3. Evaluate Model
-
-```bash
 python scripts/evaluate_model.py
+python scripts/make_figures.py
 ```
 
-Outputs:
-
-- `reports/evaluation_report.json`
-- `reports/evaluation_summary.md`
-
-### 4. Run Demo Website
-
-```bash
-cd web
-uvicorn app:app --host 0.0.0.0 --port 8000
-```
-
-Open:
-
-```text
-http://127.0.0.1:8000
-```
+The train script will (re)cache embeddings under `models/embeddings/` on first run (~3-5 min on Apple MPS for ~4k images × 3 backbones). Subsequent runs use the cache.
 
 ## Dataset Notes
 
-The CSV matches the paper's reported 4,206 examples, but not every referenced image is present locally.
+The provided CSV contains 4,206 rows (matching the paper). 244 referenced image files are missing locally; rows with missing images are excluded.
 
-| Metric | Count |
-|---|---:|
-| CSV rows | 4,206 |
-| Available images | 3,962 |
-| Missing images | 244 |
-| Available train images | 3,210 |
-| Available test images | 752 |
+| Split | CSV rows | Available images |
+|---|---:|---:|
+| Train | 3,368 | 3,210 |
+| Test | 838 | 752 |
+| Total | 4,206 | 3,962 |
 
-No dataset rows or labels were altered. Rows with missing image files are excluded from training and evaluation and listed in `reports/manifests/missing_images.csv`.
-
-## Report and Figures
-
-The main write-up is:
-
-```text
-implementation_report.md
-```
-
-Generated report figures are in:
-
-```text
-reports/figures/
-```
-
-Important figures include:
-
-- `paper_metric_comparison.png`
-- `training_testing_log_summary.png`
-- `bmi_category_distribution.png`
-- `svr_tuning_results.png`
-- `predicted_vs_actual.png`
-- `residuals_by_bmi.png`
-- `pairwise_accuracy_by_bin.png`
-
-These figures are suitable as a base for the final presentation.
-
-## Model Details
-
-Feature extraction:
-
-- Pretrained `torchvision.models.vgg16`
-- ImageNet weights
-- `fc6`-style 4096-dimensional embedding
-- Frozen feature extractor
-
-Regression:
-
-- `StandardScaler`
-- `SVR(kernel="rbf")`
-- Tuned parameters:
-  - `C = 30`
-  - `epsilon = 0.01`
-  - `gamma = 1e-5`
-
-The final model file is:
-
-```text
-models/face2bmi_svr.joblib
-```
+The previous repo and this branch use the exact same 3,210 / 752 split, so the comparison above is apples-to-apples.
 
 ## Ethics and Limitations
 
-This is an educational final project. BMI estimates from face images are noisy and should not be used for medical, employment, insurance, legal, or personal judgment decisions.
+This is an educational final project. BMI estimates from face images are noisy at the individual level and must not be used for medical, employment, insurance, legal, or personal-judgment decisions. The deployed ensemble has a small remaining gender-bias signal (see `reports/evaluation_report.json`) and the dataset has no race labels, so the paper's racial-bias diagnostic cannot be reproduced.
 
-Known limitations:
-
-- Uses ImageNet VGG16 instead of the paper's VGG-Face model.
-- 244 referenced images are missing from the provided dataset.
-- Individual predictions are noisy.
-- Very high BMI examples tend to be underpredicted.
-- Female subset performance is lower than male subset performance.
-- Race-bias analysis cannot be reproduced because race labels are not provided.
-
-## Best Next Improvement
-
-The most paper-faithful next step is to replace ImageNet VGG16 features with actual VGG-Face `fc6` features and match the original preprocessing as closely as possible. The paper's own comparison suggests this is the main path from approximately VGG-Net-level performance toward the reported VGG-Face result.
+See `implementation_report.md` for the full writeup.

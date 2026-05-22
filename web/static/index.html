@@ -16,7 +16,8 @@
     <div class="hero-copy">
       <p class="eyebrow">ADSP 31018 Final Project</p>
       <h1>Face-to-BMI Demo</h1>
-      <p class="subtitle">Real-time BMI estimation from a 224 x 224 face crop using pretrained CNN features and SVR.</p>
+      <p class="subtitle">Real-time BMI estimation from face crops using VGGFace2 features (InceptionResnetV1) + ImageNet VGG16 ensemble with MTCNN face alignment.</p>
+      <p class="subtitle" id="model-summary"></p>
     </div>
   </header>
 
@@ -65,7 +66,7 @@
   </main>
 
   <footer>
-    <p>Model: VGG16 ImageNet fc6 features + tuned SVR. Not identical to the paper's VGG-Face weights.</p>
+    <p>Model: VGGFace2 (InceptionResnetV1) + ImageNet VGG16 ensemble with MTCNN alignment. Paper baseline used VGG-Face fc6.</p>
   </footer>
 
   <script src="/static/app.js?v=6"></script>
